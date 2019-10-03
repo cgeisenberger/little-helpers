@@ -1,6 +1,6 @@
 # Sequencing Data
 
-Demultiplex Undetermined.fastq.gz files (see [barcodes](./files/rpix.csv)
+Demultiplex Undetermined.fastq.gz files (see [barcodes](./files/rpix.csv))
 
 ```bash
 
@@ -8,7 +8,7 @@ Demultiplex Undetermined.fastq.gz files (see [barcodes](./files/rpix.csv)
 ud-count.sh dir
 
 # Extract data
-ud-demux.sh ACAGTG
+ud-demux.sh BC1 BC2 BC3
 
 ```
 
