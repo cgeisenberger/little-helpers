@@ -1,30 +1,20 @@
 #!/usr/bin/env bash
 
-# Finds and concatenates "Undetermined" files from sequencing run
-# Input: Directory to search (DEFAULT: pwd)
-# Output:
-#   undeterminedBc.txt: Barcode counts in Undetermined files
-#   Undetermined.R{1,2}.fastq: for further processing (demultiplexing)
-
-# scan directory, defaults to $PWD if none supplied
+# Counts Barcodes in Undetermined.fastq
+#
+# Arguments: file (default: Undetermined_R1.fastq)
+# Input: Undetermined.fastq file
+# Output: undeterminedBc.txts
 
 if [ -z "$1" ]
   then
-    dir=$PWD
+    file="Undetermined.R1.fastq"
   else
-    dir=$1
+    file=$1
 fi
 
-echo "Find files..."
-files1=$(find $dir -type f -name Undetermined*R1*fastq.gz)
-files2=$(find $dir -type f -name Undetermined*R2*fastq.gz)
-
-echo "Concatenate files..."
-zcat $files1 > Undetermined.R1.fastq
-zcat $files2 > Undetermined.R2.fastq
-
 echo "Extract barcodes..."
-cat Undetermined.R1.fastq | awk -F ":" '$1 ~ /@/ {print $NF}' > barcodes_temp.txt
+cat $file | awk -F ":" '$1 ~ /@/ {print $NF}' > barcodes_temp.txt
 
 echo "Sort barcodes..."
 sort barcodes_temp.txt | uniq -c > bc-counts-temp.txt

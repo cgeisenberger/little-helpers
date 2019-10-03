@@ -3,12 +3,15 @@
 Demultiplex Undetermined.fastq.gz files (see [barcodes](./files/rpix.csv)
 
 ```bash
+# Find and concatenate input files
+find $PWD -type f -name Und*R1*fastq.gz | xargs zcat > Undetermined.R1.fastq
+find $PWD -type f -name Und*R2*fastq.gz | xargs zcat > Undetermined.R1.fastq
 
 # Count barcodes (ouputs undeterminedBc.txt)
-ud-count.sh dir
+ud-count.sh Undetermined.R1.fastq
 
 # Extract data
-ud-demux.sh ACAGTG
+ud-demux.sh Barcode1 Barcode2
 
 ```
 
