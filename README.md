@@ -1,14 +1,14 @@
 # Sequencing Data
 
-Demultiplex Undetermined.fastq.gz files
+Demultiplex Undetermined.fastq.gz files ((barcodes)[./files/rpix.csv])
 
 ```bash
 
 # Count barcodes (ouputs undeterminedBc.txt)
-ud-count.sh *dir*
+ud-count.sh dir
 
-# Extract and count barcodes (saved as bc-counts.txt)
-ud-demux.sh *ACAGTG*
+# Extract data
+ud-demux.sh ACAGTG
 
 ```
 
