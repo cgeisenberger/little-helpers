@@ -1,6 +1,6 @@
 # Sequencing Data
 
-Demultiplex Undetermined.fastq.gz files ((barcodes)[./files/rpix.csv])
+Demultiplex Undetermined.fastq.gz files (see [barcodes](./files/rpix.csv)
 
 ```bash
 
