@@ -11,11 +11,8 @@ find $PWD -type f -name Und*R2*fastq.gz | xargs zcat > Undetermined.R1.fastq
 ud-count.sh Undetermined.R1.fastq
 
 # Extract data
-<<<<<<< HEAD
 ud-demux.sh Barcode1 Barcode2
-=======
 ud-demux.sh BC1 BC2 BC3
->>>>>>> ea04e7d21122c012983dbc85f5e47c295c42cac7
 
 ```
 
