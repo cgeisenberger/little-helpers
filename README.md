@@ -1,6 +1,9 @@
 # Sequencing Data
 
-Demultiplex Undetermined.fastq.gz files (see [barcodes](./files/rpix.csv))
+## Demultiplex Undetermined.fastq.gz files
+
+RPI barcodes can be found [here](./files/rpix.csv).  
+Code for [ud-count.sh](./scripts/ud-count.sh) and [ud-demux.sh](./scripts/ud-demux.sh)
 
 ```bash
 # Find and concatenate input files
@@ -18,7 +21,7 @@ ud-demux.sh BC1 BC2 BC3
 
 # SGE cluster / qsub
 
-Execute script in multiple subdirectories
+## Execute script in multiple subdirectories
 
 ```bash
 for d in $(find $PWD/PATTERN* -type d); do qsub -wd $d script.sh; done
