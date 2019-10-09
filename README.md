@@ -15,8 +15,6 @@ ud-count.sh Undetermined.R1.fastq
 
 # Extract data
 ud-demux.sh Barcode1 Barcode2
-ud-demux.sh BC1 BC2 BC3
-
 ```
 
 # SGE cluster / qsub
