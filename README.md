@@ -7,6 +7,18 @@
 
 # Data Analysis
 
+Extract count table and library statistics for multiple experiments
+
+```bash
+# navigate to root directory
+mkdir data-tables lib-plots lib-stats
+for d in CG*; do mkdir ./lib-plots/$d; cp $d/plots/* ./lib-plots/$d; done # copy plota
+find CG*/tables -type f -name *.csv -exec cp {} lib-stats/ \; # copy library stats
+for d in CG*; do cp $d/count_table.csv ./data-tables/${d}.csv; done # copy data
+# TODO: data table
+```
+
+
 # Raw Sequencing Data
 
 ## Demultiplex Undetermined.fastq.gz files
@@ -41,5 +53,5 @@ ud-demux.sh Barcode1 Barcode2
 ## Execute script in multiple subdirectories
 
 ```bash
-for d in $(find $PWD/PATTERN* -type d); do qsub -wd $d script.sh; done
+for d in $(find $PWD/PATTERN* -maxdepth 0 -type d); do qsub -wd $d script.sh; done
 ```
