@@ -12,10 +12,15 @@ Extract count table and library statistics for multiple experiments
 ```bash
 # navigate to root directory
 mkdir data-tables lib-plots lib-stats
-for d in CG*; do mkdir ./lib-plots/$d; cp $d/plots/* ./lib-plots/$d; done # copy plota
-find CG*/tables -type f -name *.csv -exec cp {} lib-stats/ \; # copy library stats
-for d in CG*; do cp $d/count_table.csv ./data-tables/${d}.csv; done # copy data
-# TODO: data table
+
+# copy plots
+for d in CG*; do mkdir ./lib-plots/$d; cp $d/plots/* ./lib-plots/$d; done
+
+# copy library stats
+find CG*/tables -type f -name *.csv -exec cp {} lib-stats/ \;
+
+# copy data tables
+for d in CG*; do cp $d/count_table.csv ./data-tables/${d}.csv; done
 ```
 
 
