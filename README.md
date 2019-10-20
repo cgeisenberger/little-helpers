@@ -58,5 +58,6 @@ ud-demux.sh Barcode1 Barcode2
 ## Execute script in multiple subdirectories
 
 ```bash
-for d in $(find $PWD/PATTERN* -maxdepth 0 -type d); do qsub -wd $d script.sh; done
+# qsub -wd flag needs absolute path!
+for d in CG*; do qsub -wd $PWD/$d script.sh; done
 ```
