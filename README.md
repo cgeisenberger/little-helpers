@@ -26,6 +26,12 @@ for d in CG*; do cp $d/count_table.csv ./data-tables/${d}.csv; done
 
 # Raw Sequencing Data
 
+## Count reads in raw data
+
+```bash
+for f in *R1*fastq.gz; do i=$(zcat $f | wc -l);echo $f $i >> counts.txt; done
+```
+
 ## Demultiplex Undetermined.fastq.gz files
 
 RPI barcodes can be found [here](./files/rpix.csv).  
