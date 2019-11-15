@@ -39,8 +39,8 @@ Code for [ud-count.sh](./scripts/ud-count.sh) and [ud-demux.sh](./scripts/ud-dem
 
 ```bash
 # Find and concatenate input files
-find $PWD -type f -name Und*R1*fastq.gz | xargs zcat > Undetermined.R1.fastq
-find $PWD -type f -name Und*R2*fastq.gz | xargs zcat > Undetermined.R2.fastq
+find $PWD -type f -name "Und*R1*fastq.gz" | xargs zcat > Undetermined.R1.fastq
+find $PWD -type f -name "Und*R2*fastq.gz" | xargs zcat > Undetermined.R2.fastq
 
 # Count barcodes (ouputs undeterminedBc.txt)
 ud-count.sh Undetermined.R1.fastq
