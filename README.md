@@ -14,8 +14,11 @@ NCBI's [Sequence Read Archive (SRA)](https://www.ncbi.nlm.nih.gov/sra).
 
 ## Downloading from ENA
 
-Query the ENAs API to get a list of files (documentation [here](https://www.ebi.ac.uk/ena/portal/api/#/Portal_API)).
-Make sure to **replace the accesion ID**. See also [this post](https://www.biostars.org/p/325010/) on Biostars for more information. 
+**Note**: IBMs Aspera needs to be installed in order for this to work. Download [here](https://downloads.asperasoft.com/en/downloads/8?list)
+
+First, figure out the ENA accession ID. Then use the code below to query ENAs API to get a list of files (**make sure to replace the accesion ID**, documentation [here](https://www.ebi.ac.uk/ena/portal/api/#/Portal_API)). Extract the FTP links and download using Aspera. 
+
+See also [this post](https://www.biostars.org/p/325010/) on Biostars for more information. 
 
 ```bash
 # Download tab-delimited file with information about data
