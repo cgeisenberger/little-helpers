@@ -1,8 +1,24 @@
 # Contents
 
+* [Data Download from SRA / ENA](#data-download)
 * [Data Analysis](#data-analysis)
 * [Raw Sequencing Data](#raw-sequencing-data)
 * [SGE cluster](#sge-cluster)
+
+
+# Data Download
+
+A little How To about download data from the [European Nucleotide Archive (ENA)](https://www.ebi.ac.uk/ena/browser/home) and
+NCBI's [Sequence Read Archive (SRA)](https://www.ncbi.nlm.nih.gov/sra).
+
+
+## Downloading from ENA
+
+First, get list of file through querying ENAs API (Documentation can be found [here](https://www.ebi.ac.uk/ena/portal/api/#/Portal_API)). Make sure to *replace the accesion ID*. 
+
+```bash
+curl -X GET "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB23051&download=false&result=read_run" -H "accept: */*"
+```
 
 
 # Data Analysis
