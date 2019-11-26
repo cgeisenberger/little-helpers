@@ -1,6 +1,7 @@
 # Contents
 
 * [Data Download from SRA / ENA](#data-download)
+* [Samtools Magic](#samtools-magic)
 * [Data Analysis](#data-analysis)
 * [Raw Sequencing Data](#raw-sequencing-data)
 * [SGE cluster](#sge-cluster)
@@ -33,6 +34,16 @@ while read LIST; do echo $LIST | sh; done < download.txt
 # could also be run in parallel (option currently not available on HPC)
 cat download.txt | parallel "{}"
 
+```
+
+# Samtools Magic
+
+```bash
+# subsample fraction <f> of reads from BAM file
+samtools view -s <f> -b in.bam > out.sam
+
+# SAM to BAM conversion
+samtools view -S -b in.sam > out.bam
 ```
 
 
