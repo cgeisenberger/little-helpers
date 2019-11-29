@@ -23,7 +23,7 @@ See also [this post](https://www.biostars.org/p/325010/) on Biostars for more in
 
 ```bash
 # Download tab-delimited file with information about data
-curl -X GET "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB23051&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,fastq_ftp,submitted_ftp,sra_ftp&format=tsv" -H "accept: */*" -o file_list.txt
+curl -X GET "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB23051&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,fastq_ftp,submitted_ftp,sra_ftp&format=tsv" -H "accept: */*" -o accessions.txt  
 
 # extract FTP links
 awk 'FS="\t", OFS="\t" { gsub("ftp.sra.ebi.ac.uk", "era-fasp@fasp.sra.ebi.ac.uk:"); print }' accessions.txt | cut -f 8 | awk -F ";" 'OFS="\n" {print $1, $2}' | awk NF | awk 'NR > 1, OFS="\n" {print "ascp -QT -l 300m -P33001 -i $HOME/.aspera/connect/etc/asperaweb_id_dsa.openssh" " " $1 " ."}' > download.txt
