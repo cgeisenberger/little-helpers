@@ -36,6 +36,11 @@ cat download.txt | parallel "{}"
 
 ```
 
+## Downloading from SRA 
+
+currently [here](./sra.md) 
+
+
 # Samtools Magic
 
 ```bash
