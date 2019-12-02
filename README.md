@@ -61,8 +61,8 @@ As some of the tools are not very well documented, some useful links for further
 
 ### Download files
 
-1. Download this [script](./scripts/download-srr.sh)
-2. Run script: ```download_srr.sh accession_list.txt /outputdir/```
+1. Download this [script](./scripts/download-srr.sh) via ```https://raw.githubusercontent.com/cgeisenberger/little-helpers/master/scripts/download-srr.sh```
+2. Run script: ```download_srr.sh accessions.txt /outputdir/```
 3. This will download .srr files
 
 ### Extract fastq data
