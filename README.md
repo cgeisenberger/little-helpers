@@ -57,6 +57,7 @@ As some of the tools are not very well documented, some useful links for further
 4. Fire up the Run Selector (https://www.ncbi.nlm.nih.gov/Traces/study/)
 5. Search for GSE numbers
 6. Download accession file (click on *Accession List*)
+7. Save as *accessions.txt*
 
 
 ### Download files
