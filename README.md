@@ -58,10 +58,23 @@ As some of the tools are not very well documented, some useful links for further
 5. Search for GSE numbers
 6. Download accession file (click on *Accession List*)
 
+
 ### Download files
 
 1. Download this [script](./scripts/download-srr.sh)
-2. 
+2. Run script: ```download_srr.sh accession_list.txt /outputdir/```
+3. This will download .srr files
+
+### Extract fastq data
+
+```bash
+# Run locally:
+for i in $(ls *.sra); do fastq-dump --gzip --skip-technical --readids --split-3 $i; done
+
+# Run on server:
+for i in $(ls *.sra); do echo "fastq-dump --gzip --skip-technical --readids --split-3 $i" | qsub -V -cwd -l h_rt="2:00:00"; done
+
+```
 
 
 # Samtools Magic
