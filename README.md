@@ -1,6 +1,8 @@
 # Contents
 
-* [Data Download from SRA / ENA](#data-download)
+* [Download from Seq Data Repositories](#data-download)
+  - [Download from ENA](#download-from-ena)
+  - [Download from SRA](#download-from-sra)
 * [Samtools Magic](#samtools-magic)
 * [Data Analysis](#data-analysis)
 * [Raw Sequencing Data](#raw-sequencing-data)
@@ -13,11 +15,11 @@ A little How To about download data from the [European Nucleotide Archive (ENA)]
 NCBI's [Sequence Read Archive (SRA)](https://www.ncbi.nlm.nih.gov/sra).
 
 
-## Downloading from ENA
+## Download from ENA
 
-**Note**: IBMs Aspera needs to be installed in order for this to work. Download [here](https://downloads.asperasoft.com/en/downloads/8?list)
+**Note**: IBMs Aspera needs to be installed in order for this to work. Download [here](https://downloads.asperasoft.com/en/downloads/8?list).
 
-First, figure out the ENA accession ID. Then use the code below to query ENAs API to get a list of files (**make sure to replace the accesion ID**, documentation [here](https://www.ebi.ac.uk/ena/portal/api/#/Portal_API)). Extract the FTP links and download using Aspera. 
+First, figure out the ENA accession ID. Then use the code below to query ENAs API to get a list of files (**make sure to replace the accession ID**, documentation [here](https://www.ebi.ac.uk/ena/portal/api/#/Portal_API)). Extract the FTP links and download using Aspera. **Important**: Depending on whether the study authors uploaded fastq or other file types, the entries will end up in different columns. This means the ```cut -f``` in the code block has to be adjusted!
 
 See also [this post](https://www.biostars.org/p/325010/) on Biostars for more information. 
 
@@ -36,7 +38,7 @@ cat download.txt | parallel "{}"
 
 ```
 
-## Downloading from SRA 
+## Download from SRA 
 
 currently [here](./sra.md) 
 
