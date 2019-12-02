@@ -40,7 +40,15 @@ cat download.txt | parallel "{}"
 
 ## Download from SRA 
 
-currently [here](./sra.md) 
+Most journals require authors to upload their data to a repository. In the majority of cases, this means depositing data to the NCBI's [Gene Expression Omnibus (GEO)](https://www.ncbi.nlm.nih.gov/geo/). Every dataset is assigned a unique accession number (such as **GSE56879**). For sequencing experiments, raw data is hosted on yet another platform called [Sequencing Read Archive (SRA)](https://www.ncbi.nlm.nih.gov/sra). The files hosted on SRA are assigned accession numbers which start with **SRR**. After obtaining a list of accessions, the below script can be used to download the files. As a last step, the fastq files have to be extracted using ```fastq-dump```. If it's not installed, check the Github repo [here](https://github.com/ncbi/sra-tools). 
+
+As some of the tools are not very well documented, some useful links for further reading:  
+
+* [Biostars post on downloading raw data](https://www.biostars.org/p/111040/)  
+* [More information on fastq-dump options](https://edwards.sdsu.edu/research/fastq-dump/)   
+* [SRA documentation: Using command line tools to access data](https://www.ncbi.nlm.nih.gov/books/NBK158899/?report=reader)  
+
+
 
 
 # Samtools Magic
