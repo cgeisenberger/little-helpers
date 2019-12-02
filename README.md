@@ -49,6 +49,19 @@ As some of the tools are not very well documented, some useful links for further
 * [SRA documentation: Using command line tools to access data](https://www.ncbi.nlm.nih.gov/books/NBK158899/?report=reader)  
 
 
+### Obtain accession numbers
+
+1. Go to https://www.ncbi.nlm.nih.gov/geo/
+2. Search for accesion no (e.g. GSE56879)
+3. Note the linked SRP no. (SRP041257)
+4. Fire up the Run Selector (https://www.ncbi.nlm.nih.gov/Traces/study/)
+5. Search for GSE numbers
+6. Download accession file (click on *Accession List*)
+
+### Download files
+
+1. Download this [script](./scripts/download-srr.sh)
+2. 
 
 
 # Samtools Magic
