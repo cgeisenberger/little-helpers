@@ -151,3 +151,11 @@ ud-demux.sh Barcode1 Barcode2
 # qsub -wd flag needs absolute path!
 for d in CG*; do qsub -wd $PWD/$d script.sh; done
 ```
+
+# Misc 
+
+## Find and copy files
+
+```bash
+find dir1 -type f -name "PATTERN*" -exec cp {} dir2 \;
+```
