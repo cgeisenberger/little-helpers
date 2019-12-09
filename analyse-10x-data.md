@@ -29,7 +29,8 @@ The main data types are:
 
 * fastq files need to adhere to a filename pattern for cellranger to work correctly
 * example: `sample-xyz_S1_L000_R1_001.fastq.gz`
-* NB: The sample name (sample-xyz) must **not** contain underscores!
+
+> NB: The sample name (sample-xyz) must **not** contain underscores!
 
 
 ## Directory Organization
