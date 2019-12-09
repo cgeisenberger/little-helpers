@@ -85,7 +85,7 @@ for d in ds*; do qsub -wd $PWD/$d run-cellranger.sh; done
 
 ## Merge multiple datasets
 
-[Dave Tang: Merging datasets](https://davetang.org/muse/2018/01/24/merging-two-10x-single-cell-datasets/)
+[Dave Tang: Merging datasets](https://davetang.org/muse/2018/01/24/merging-two-10x-single-cell-datasets/)  
 [Dave Tang: Seurat Intro](https://davetang.org/muse/2017/08/01/getting-started-seurat/)
 
 
