@@ -160,7 +160,7 @@ for d in CG*; do qsub -wd $PWD/$d script.sh; done
   * **sample must not contain underscores (_)!**
   
   
-```bash
+```
 ├── _config.yml
 ├── _data
 |   └── members.yml
