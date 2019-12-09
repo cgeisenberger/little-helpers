@@ -1,8 +1,6 @@
 # Contents
 
-* [Download from Seq Data Repositories](#data-download)
-  - [Download from ENA](#download-from-ena)
-  - [Download from SRA](#download-from-sra)
+* [Download from Data Repositories](#data-download)
 * [Samtools Magic](#samtools-magic)
 * [Data Analysis](#data-analysis)
 * [Raw Sequencing Data](#raw-sequencing-data)
