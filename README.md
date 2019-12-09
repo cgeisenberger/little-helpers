@@ -7,7 +7,7 @@
 * [Data Analysis](#data-analysis)
 * [Raw Sequencing Data](#raw-sequencing-data)
 * [SGE cluster](#sge-cluster)
-* [Analyzing 10x scRNAS-Seq Data](#10x-genomics-data-analysis)
+* [Analyzing 10x scRNA-Seq Data](#10x-genomics-data-analysis)
 * [Miscellaneous](#miscellaneous)
 
 
