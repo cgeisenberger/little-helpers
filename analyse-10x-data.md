@@ -3,9 +3,9 @@
 
 ## Obtaining sequencing data
 
-In addition to their scRNA-Seq platform, 10x Genomics has published its own suite of analysis tools which consist mainly of the **cellranger** software and some additional tools. Cellranger is capable of performing the full workflow from raw data produced by Illumina sequencers to count matrices (plus some additional steps for visualization etc.). Consider looking into the documentation [here][https://support.10xgenomics.com/single-cell-gene-expression/software/overview/welcome]. 
+In addition to their scRNA-Seq platform, 10x Genomics has published its own suite of analysis tools which consist mainly of the **cellranger** software and some additional tools. Cellranger is capable of performing the full workflow from raw data produced by Illumina sequencers to count matrices (plus some additional steps for visualization etc.). Consider looking into the documentation [here](https://support.10xgenomics.com/single-cell-gene-expression/software/overview/welcome). 
 
-However, a number of different data formats may be encountered if downloading data from public repositories such as the sequencing read archive (SRA) or the European Nucleotide Archive (ENA). Refer to this guide for more information. 
+However, a number of different data formats may be encountered if downloading data from public repositories such as the sequencing read archive (SRA) or the European Nucleotide Archive (ENA). More information [here](https://github.com/cgeisenberger/little-helpers/blob/master/download-data.md)
 
 The main data types are: 
 
@@ -77,10 +77,10 @@ ref="/hpc/hub_oudenaarden/cgeisenberger/genomes/refdata-cellranger-GRCh38-and-mm
 cellranger count --localcores=8 --id=output --transcriptome=$ref --fastqs="./fastq" --sample=input
 ```
 
-Copy the above script into ```run-cellranger.sh``` (or whatever). Copy the script into the study folders and run for all data sets like this:
+Copy the contents above into the script `run-cellranger.sh`. Run the following command to start one job per dataset:
 
 ```bash
-for d in ds*; do qsub -wd $PWD/$d run-cellranger.sh; done
+for d in study*/ds*; do qsub -wd $PWD/$d run-cellranger.sh; done
 ```
 
 ## Merge multiple datasets
@@ -88,8 +88,3 @@ for d in ds*; do qsub -wd $PWD/$d run-cellranger.sh; done
 [Dave Tang: Merging datasets](https://davetang.org/muse/2018/01/24/merging-two-10x-single-cell-datasets/)  
 [Dave Tang: Seurat Intro](https://davetang.org/muse/2017/08/01/getting-started-seurat/)
 
-
-
-## Links
-
-[1]: https://support.illumina.com/sequencing/sequencing_software/bcl2fastq-conversion-software.html
