@@ -1,20 +1,41 @@
 # 10x Genomics Data Analysis
 
-This assumes the input is fastq files downloaded from a sequencing archive. Check 10x Genomics [documentation](https://support.10xgenomics.com/single-cell-gene-expression/software/overview/welcome) on how to create fastq files from Illumina sequencer output.
 
-## Some Basics
+## Obtaining sequencing data
 
-* You cannot extract count matrices from BAM files
-  - convert to fastq first with [bam2fastq](https://github.com/10XGenomics/bamtofastq)
-  - **supply correct cellranger version to the command line tool**
-* cellranger input files require naming pattern
-  - example: ```sample_S1_L000_R1_001.fastq.gz```
-  * do **not** use underscores for *sample*
+In addition to their scRNA-Seq platform, 10x Genomics has published its own suite of analysis tools which consist mainly of the **cellranger** software and some additional tools. Cellranger is capable of performing the full workflow from raw data produced by Illumina sequencers to count matrices (plus some additional steps for visualization etc.). Consider looking into the documentation [here][https://support.10xgenomics.com/single-cell-gene-expression/software/overview/welcome]. 
+
+However, a number of different data formats may be encountered if downloading data from public repositories such as the sequencing read archive (SRA) or the European Nucleotide Archive (ENA). Refer to this guide for more information. 
+
+The main data types are: 
+
+1. BCL files
+  - raw sequencing output
+  - need to be demultiplexed with Illuminas [bcl2fastq][1] or `cellranger mkfastq`
+2. Fastq files
+  - most published data
+  - 
+3. BAM files
+  - sometimes uploaded instead of fastq files
+  - cellranger cannot extract count matrices from BAM files directly
+  - files need to be converted to fastq first via [bamtofastq](https://github.com/10XGenomics/bamtofastq)
+  - NB: **make sure to supply cellranger version used to create BAM files if you use bamtofastq**
+4. Count matrices
+  - Can be further analyzed with dedicated software such as [Seurat](https://satijalab.org/seurat/) or [Scanpy](https://scanpy.readthedocs.io/en/stable/#)
+  - If multiple datasets need to be merged, it may be useful to obtain raw data and re-process
+
+
+## Filename conventions
+
+* fastq files need to adhere to a filename pattern for cellranger to work correctly
+* example: `sample-xyz_S1_L000_R1_001.fastq.gz`
+* NB: The sample name (sample-xyz) must **not** contain underscores!
+
 
 ## Directory Organization
 
-If you want to process multiple fastqs in parallel, save yourself some trouble and set up the folder structure like in the following schematic. This will allow you to re-use the same script without having to adjust any parameters.
-  
+A coherent folder structure facilites data analysis later on because the same script can be re-used for qsub submissions. The following directory tree is a suggestion, and the scripts later on are tailored to work within this structure. 
+
 ```
 ├── study-A
 |   ├── ds-1-name
@@ -67,3 +88,8 @@ for d in ds*; do qsub -wd $PWD/$d run-cellranger.sh; done
 [Dave Tang: Merging datasets](https://davetang.org/muse/2018/01/24/merging-two-10x-single-cell-datasets/)
 [Dave Tang: Seurat Intro](https://davetang.org/muse/2017/08/01/getting-started-seurat/)
 
+
+
+## Links
+
+[1]: https://support.illumina.com/sequencing/sequencing_software/bcl2fastq-conversion-software.html
