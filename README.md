@@ -156,6 +156,9 @@ for d in CG*; do qsub -wd $PWD/$d script.sh; done
 
 # 10x Genomics Data Analysis
 
+* cellranger input files require naming pattern ```sample_S1_L000_R1_001.fastq.gz```
+  * **sample must not contain underscores (_)!**
+  
 
 # Miscellaneous 
 
