@@ -14,7 +14,7 @@ The main data types are:
   - need to be demultiplexed with Illuminas [bcl2fastq][1] or `cellranger mkfastq`
 * Fastq files
   - most published data
-  - 
+  - can be processed with `cellranger count`
 * BAM files
   - sometimes uploaded instead of fastq files
   - cellranger cannot extract count matrices from BAM files directly
