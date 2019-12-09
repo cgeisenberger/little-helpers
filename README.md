@@ -156,6 +156,9 @@ for d in CG*; do qsub -wd $PWD/$d script.sh; done
 
 # 10x Genomics Data Analysis
 
+see [here](./analyse-10x-data.md)
+
+
 This assumes the input is fastq files downloaded from a sequencing archive. Check 10x Genomics [documentation](https://support.10xgenomics.com/single-cell-gene-expression/software/overview/welcome) on how to create fastq files from Illumina sequencer output.
 
 ## Some Basics
