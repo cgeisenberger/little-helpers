@@ -13,73 +13,7 @@
 
 # Data Download
 
-now at [download data](./download-data.md)
-
-A little How To about download data from the [European Nucleotide Archive (ENA)](https://www.ebi.ac.uk/ena/browser/home) and
-NCBI's [Sequence Read Archive (SRA)](https://www.ncbi.nlm.nih.gov/sra).
-
-
-## Download from ENA
-
-**Note**: IBMs Aspera needs to be installed in order for this to work. Download [here](https://downloads.asperasoft.com/en/downloads/8?list).
-
-First, figure out the ENA accession ID. Then use the code below to query ENAs API to get a list of files (**make sure to replace the accession ID**, documentation [here](https://www.ebi.ac.uk/ena/portal/api/#/Portal_API)). Extract the FTP links and download using Aspera. **Important**: Depending on whether the study authors uploaded fastq or other file types, the entries will end up in different columns. This means the ```cut -f``` in the code block has to be adjusted!
-
-See also [this post](https://www.biostars.org/p/325010/) on Biostars for more information. 
-
-```bash
-# Download tab-delimited file with information about data
-curl -X GET "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB23051&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,fastq_ftp,submitted_ftp,sra_ftp&format=tsv" -H "accept: */*" -o accessions.txt  
-
-# extract FTP links
-awk 'FS="\t", OFS="\t" { gsub("ftp.sra.ebi.ac.uk", "era-fasp@fasp.sra.ebi.ac.uk:"); print }' accessions.txt | cut -f 8 | awk -F ";" 'OFS="\n" {print $1, $2}' | awk NF | awk 'NR > 1, OFS="\n" {print "ascp -QT -l 300m -P33001 -i $HOME/.aspera/connect/etc/asperaweb_id_dsa.openssh" " " $1 " ."}' > download.txt
-
-# download (use screen!)
-while read LIST; do echo $LIST | sh; done < download.txt
-
-# could also be run in parallel (option currently not available on HPC)
-cat download.txt | parallel "{}"
-
-```
-
-## Download from SRA 
-
-Most journals require authors to upload their data to a repository. In the majority of cases, this means depositing data to the NCBI's [Gene Expression Omnibus (GEO)](https://www.ncbi.nlm.nih.gov/geo/). Every dataset is assigned a unique accession number (such as **GSE56879**). For sequencing experiments, raw data is hosted on yet another platform called [Sequencing Read Archive (SRA)](https://www.ncbi.nlm.nih.gov/sra). The files hosted on SRA are assigned accession numbers which start with **SRR**. After obtaining a list of accessions, the below script can be used to download the files. As a last step, the fastq files have to be extracted using ```fastq-dump```. If it's not installed, check the Github repo [here](https://github.com/ncbi/sra-tools). 
-
-As some of the tools are not very well documented, some useful links for further reading:  
-
-* [Biostars post on downloading raw data](https://www.biostars.org/p/111040/)  
-* [More information on fastq-dump options](https://edwards.sdsu.edu/research/fastq-dump/)   
-* [SRA documentation: Using command line tools to access data](https://www.ncbi.nlm.nih.gov/books/NBK158899/?report=reader)  
-
-
-### Obtain accession numbers
-
-1. Go to https://www.ncbi.nlm.nih.gov/geo/
-2. Search for accesion no (e.g. GSE56879)
-3. Note the linked SRP no. (SRP041257)
-4. Fire up the Run Selector (https://www.ncbi.nlm.nih.gov/Traces/study/)
-5. Search for GSE numbers
-6. Download accession file (click on *Accession List*)
-7. Save as *accessions.txt*
-
-
-### Download files
-
-1. Download this [script](./scripts/download-srr.sh) via ```https://raw.githubusercontent.com/cgeisenberger/little-helpers/master/scripts/download-srr.sh```
-2. Run script: ```download_srr.sh accessions.txt /outputdir/```
-3. This will download .srr files
-
-### Extract fastq data
-
-```bash
-# Run locally:
-for i in $(ls *.sra); do fastq-dump --gzip --skip-technical --readids --split-3 $i; done
-
-# Run on server:
-for i in $(ls *.sra); do echo "fastq-dump --gzip --skip-technical --readids --split-3 $i" | qsub -V -cwd -l h_rt="2:00:00"; done
-
-```
+look [here](./download-data.md)
 
 
 # Samtools Magic
@@ -158,75 +92,7 @@ for d in CG*; do qsub -wd $PWD/$d script.sh; done
 
 # 10x Genomics Data Analysis
 
-see [here](./analyse-10x-data.md)
-
-
-This assumes the input is fastq files downloaded from a sequencing archive. Check 10x Genomics [documentation](https://support.10xgenomics.com/single-cell-gene-expression/software/overview/welcome) on how to create fastq files from Illumina sequencer output.
-
-## Some Basics
-
-* You cannot extract count matrices from BAM files
-  - convert to fastq first with [bam2fastq](https://github.com/10XGenomics/bamtofastq)
-  - **supply correct cellranger version to the command line tool**
-* cellranger input files require naming pattern
-  - example: ```sample_S1_L000_R1_001.fastq.gz```
-  * do **not** use underscores for *sample*
-
-## Directory Organization
-
-If you want to process multiple fastqs in parallel, save yourself some trouble and set up the folder structure like in the following schematic. This will allow you to re-use the same script without having to adjust any parameters.
-  
-```
-├── study-A
-|   ├── ds-1-name
-|       ├── fastq
-|           ├── input_S1_L000_R1_001.fastq.gz
-|           ├── input_S1_L000_R2_001.fastq.gz
-|   └── ds-2-name
-|       ├── fastq
-|           ├── input_S1_L000_R1_001.fastq.gz
-|           ├── input_S1_L000_R2_001.fastq.gz
-|   └── ds-3-name
-|       ├── fastq
-|           ├── input_S1_L000_R1_001.fastq.gz
-|           ├── input_S1_L000_R2_001.fastq.gz
-├── study-B
-|   ├── ds-1-name
-|       ├── fastq
-|           ├── input_S1_L000_R1_001.fastq.gz
-|           ├── input_S1_L000_R2_001.fastq.gz
-|   └── ds-3-name
-|       ├── _fastq
-|           ├── input_S1_L000_R1_001.fastq.gz
-|           ├── input_S1_L000_R2_001.fastq.gz
-```
-
-## Run cellranger
-
-```bash
-#! /bin/bash
-#$ -V
-#$ -cwd
-#$ -l h_rt=48:00:00
-#$ -l h_vmem=120G
-#$ -pe threaded 8
-
-#ref="/hpc/hub_oudenaarden/fblokzijl/data/cellranger/refdata-cellranger-GRCh38-3.0.0"
-ref="/hpc/hub_oudenaarden/cgeisenberger/genomes/refdata-cellranger-GRCh38-and-mm10-3.1.0/"
-
-cellranger count --localcores=8 --id=output --transcriptome=$ref --fastqs="./fastq" --sample=input
-```
-
-Copy the above script into ```run-cellranger.sh``` (or whatever). Copy the script into the study folders and run for all data sets like this:
-
-```bash
-for d in ds*; do qsub -wd $PWD/$d run-cellranger.sh; done
-```
-
-## Merge multiple datasets
-
-[Dave Tang: Merging datasets](https://davetang.org/muse/2018/01/24/merging-two-10x-single-cell-datasets/)
-[Dave Tang: Seurat Intro](https://davetang.org/muse/2017/08/01/getting-started-seurat/)
+look [here](./analyse-10x-data.md)
 
 
 # Miscellaneous 
