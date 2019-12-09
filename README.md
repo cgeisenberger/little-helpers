@@ -7,6 +7,8 @@
 * [Data Analysis](#data-analysis)
 * [Raw Sequencing Data](#raw-sequencing-data)
 * [SGE cluster](#sge-cluster)
+* [Analyzing 10x scRNAS-Seq Data](#10x-genomics-data-analysis)
+* [Miscellaneous](#miscellaneous)
 
 
 # Data Download
@@ -152,7 +154,10 @@ ud-demux.sh Barcode1 Barcode2
 for d in CG*; do qsub -wd $PWD/$d script.sh; done
 ```
 
-# Misc 
+# 10x Genomics Data Analysis
+
+
+# Miscellaneous 
 
 ## Find and copy files
 
