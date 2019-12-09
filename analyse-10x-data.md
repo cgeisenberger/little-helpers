@@ -9,18 +9,18 @@ However, a number of different data formats may be encountered if downloading da
 
 The main data types are: 
 
-1. BCL files
+* BCL files
   - raw sequencing output
   - need to be demultiplexed with Illuminas [bcl2fastq][1] or `cellranger mkfastq`
-2. Fastq files
+* Fastq files
   - most published data
   - 
-3. BAM files
+* BAM files
   - sometimes uploaded instead of fastq files
   - cellranger cannot extract count matrices from BAM files directly
   - files need to be converted to fastq first via [bamtofastq](https://github.com/10XGenomics/bamtofastq)
   - NB: **make sure to supply cellranger version used to create BAM files if you use bamtofastq**
-4. Count matrices
+* Count matrices
   - Can be further analyzed with dedicated software such as [Seurat](https://satijalab.org/seurat/) or [Scanpy](https://scanpy.readthedocs.io/en/stable/#)
   - If multiple datasets need to be merged, it may be useful to obtain raw data and re-process
 
