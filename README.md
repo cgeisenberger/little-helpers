@@ -13,6 +13,8 @@
 
 # Data Download
 
+now at [download data](./download-data.md)
+
 A little How To about download data from the [European Nucleotide Archive (ENA)](https://www.ebi.ac.uk/ena/browser/home) and
 NCBI's [Sequence Read Archive (SRA)](https://www.ncbi.nlm.nih.gov/sra).
 
