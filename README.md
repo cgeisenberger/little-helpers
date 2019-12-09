@@ -172,25 +172,25 @@ This assumes the input is fastq files downloaded from a sequencing archive. Chec
 If you want to process multiple fastqs in parallel, save yourself some trouble and set up the folder structure like in the following schematic. This will allow you to re-use the same script without having to adjust any parameters.
   
 ```
-├── _study-A
-|   ├── _ds-1-name
-|       ├── _fastq
+├── study-A
+|   ├── ds-1-name
+|       ├── fastq
 |           ├── input_S1_L000_R1_001.fastq.gz
 |           ├── input_S1_L000_R2_001.fastq.gz
-|   └── _ds-2-name
-|       ├── _fastq
+|   └── ds-2-name
+|       ├── fastq
 |           ├── input_S1_L000_R1_001.fastq.gz
 |           ├── input_S1_L000_R2_001.fastq.gz
-|   └── _ds-3-name
-|       ├── _fastq
+|   └── ds-3-name
+|       ├── fastq
 |           ├── input_S1_L000_R1_001.fastq.gz
 |           ├── input_S1_L000_R2_001.fastq.gz
-├── _study-B
-|   ├── _ds-1-name
-|       ├── _fastq
+├── study-B
+|   ├── ds-1-name
+|       ├── fastq
 |           ├── input_S1_L000_R1_001.fastq.gz
 |           ├── input_S1_L000_R2_001.fastq.gz
-|   └── _ds-3-name
+|   └── ds-3-name
 |       ├── _fastq
 |           ├── input_S1_L000_R1_001.fastq.gz
 |           ├── input_S1_L000_R2_001.fastq.gz
