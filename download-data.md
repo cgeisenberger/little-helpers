@@ -1,7 +1,8 @@
 # Data Download
 
-A little How To about download data from the [European Nucleotide Archive (ENA)](https://www.ebi.ac.uk/ena/browser/home) and
-NCBI's [Sequence Read Archive (SRA)](https://www.ncbi.nlm.nih.gov/sra).
+A little How To on downloading data from the
+* [European Nucleotide Archive (ENA)](https://www.ebi.ac.uk/ena/browser/home) and
+* NCBI's [Sequence Read Archive (SRA)](https://www.ncbi.nlm.nih.gov/sra).
 
 
 ## Download from ENA
