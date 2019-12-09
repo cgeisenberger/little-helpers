@@ -159,6 +159,18 @@ for d in CG*; do qsub -wd $PWD/$d script.sh; done
 * cellranger input files require naming pattern ```sample_S1_L000_R1_001.fastq.gz```
   * **sample must not contain underscores (_)!**
   
+  
+```bash
+├── _config.yml
+├── _data
+|   └── members.yml
+├── _drafts
+|   ├── begin-with-the-crazy-ideas.md
+|   └── on-simplicity-in-technology.md
+├── _includes
+|   ├── footer.html
+|   └── header.html
+```
 
 # Miscellaneous 
 
