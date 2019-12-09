@@ -11,7 +11,7 @@ The main data types are:
 
 * BCL files
   - raw sequencing output
-  - need to be demultiplexed with Illuminas [bcl2fastq][1] or `cellranger mkfastq`
+  - need to be demultiplexed with Illuminas `bcl2fastq` or `cellranger mkfastq`
 * Fastq files
   - most published data
   - can be processed with `cellranger count`
