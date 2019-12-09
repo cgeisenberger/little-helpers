@@ -5,7 +5,7 @@
 
 In addition to their scRNA-Seq platform, 10x Genomics has published its own suite of analysis tools which consist mainly of the **cellranger** software and some additional tools. Cellranger is capable of performing the full workflow from raw data produced by Illumina sequencers to count matrices (plus some additional steps for visualization etc.). Consider looking into the documentation [here](https://support.10xgenomics.com/single-cell-gene-expression/software/overview/welcome). 
 
-However, a number of different data formats may be encountered if downloading data from public repositories such as the sequencing read archive (SRA) or the European Nucleotide Archive (ENA). More information [here](https://github.com/cgeisenberger/little-helpers/blob/master/download-data.md)
+However, a number of different data formats may be encountered if downloading data from public repositories such as the sequencing read archive (SRA) or the European Nucleotide Archive (ENA). More information [here](https://github.com/cgeisenberger/little-helpers/blob/master/download-data.md).
 
 The main data types are: 
 
