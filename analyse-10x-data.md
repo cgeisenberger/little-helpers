@@ -45,11 +45,11 @@ The main data types are:
 #! /bin/bash
 #$ -V
 #$ -cwd
-#$ -l h_rt=1:00:00
-#$ -l h_vmem=10G
+#$ -l h_rt=24:00:00
+#$ -l h_vmem=32G
 #$ -pe threaded 4
 
-bamtofastq --nthreads=4 --cr11 input.bam ./fastq
+bamtofastq --nthreads=4 --cr11 *_Cerebella.bam ./fastq
 ```
 
 ## Directory Organization
