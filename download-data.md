@@ -58,7 +58,7 @@ As some of the tools are not very well documented, some useful links for further
 
 ### Extract fastq data
 
-> NB: Single-cell data from 10x Genomics might require removing the `--skip-technical` option!
+> NB: Single-cell data from 10x Genomics might require removing the `--skip-technical` option!  
 > Check out this [blog post](https://edwards.sdsu.edu/research/fastq-dump/) for more info
 
 ```bash
