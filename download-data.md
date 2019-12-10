@@ -52,11 +52,13 @@ As some of the tools are not very well documented, some useful links for further
 
 ### Download files
 
-1. Download this [script](./scripts/download-srr.sh) via ```https://raw.githubusercontent.com/cgeisenberger/little-helpers/master/scripts/download-srr.sh```
+1. Download this [script](./scripts/download-srr.sh)
 2. Run script: ```download_srr.sh accessions.txt /outputdir/```
-3. This will download .srr files
+3. Wait for download to finish
 
 ### Extract fastq data
+
+> NB: Single-cell data from 10x Genomics might require removing the `--skip-technical` option!
 
 ```bash
 # Run locally:
