@@ -36,6 +36,22 @@ The main data types are:
 > NB: The sample name (sample-xyz) must **not** contain underscores!
 
 
+## Extract Fastq files from BAM
+
+> Make sure requested cores in qsub header matches `--nthreads`  
+> **supply `--cr11` flag if BAMs were produced with cellranger ≤ 1.1**
+
+```bash
+#! /bin/bash
+#$ -V
+#$ -cwd
+#$ -l h_rt=1:00:00
+#$ -l h_vmem=10G
+#$ -pe threaded 4
+
+bamtofastq --nthreads=4 --cr11 input.bam ./fastq
+```
+
 ## Directory Organization
 
 A coherent folder structure facilites data analysis later on because the same script can be re-used for qsub submissions. The following directory tree is a suggestion, and the scripts later on are tailored to work within this structure. 
