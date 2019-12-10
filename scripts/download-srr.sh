@@ -1,4 +1,3 @@
-```bash
 # !/bin/bash
 # Usage: download_srr.sh accession_list.txt /outputdir/
 # Loops over list of SRR IDs in accession_list.txt and downloads them to /outputdir/
@@ -23,4 +22,3 @@ for srr in $lines; do
     wget -P $output_dir $add
     echo "Done"
 done
-```
