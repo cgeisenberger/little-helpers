@@ -12,6 +12,9 @@ The main data types are:
 * BCL files
   - raw sequencing output
   - need to be demultiplexed with Illuminas `bcl2fastq` or `cellranger mkfastq`
+* SRA files
+  - format of data stored in the GEO/SRA database
+  - fastq files can be extracted with `fastq-dump`
 * Fastq files
   - most published data
   - can be processed with `cellranger count`
