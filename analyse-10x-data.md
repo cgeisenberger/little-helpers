@@ -56,7 +56,8 @@ bamtofastq --nthreads=4 --cr11 *_Cerebella.bam ./fastq
 > use the following two-liner to clean up
 
 ```bash
-mv *
+for d in P*; do mv ${d}/fastq/gemgroup001/* ${d}/fastq; done
+rmdir */fastq/gemgroup001
 ```
 
 
