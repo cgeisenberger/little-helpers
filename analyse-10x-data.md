@@ -58,24 +58,24 @@ A coherent folder structure facilites data analysis later on because the same sc
 
 ```
 ├── study-A
-|   ├── ds-1-name
+|   ├── dataset-1
 |       ├── fastq
-|           ├── input_S1_L000_R1_001.fastq.gz
-|           ├── input_S1_L000_R2_001.fastq.gz
-|   └── ds-2-name
+|           ├── sample1_S1_L000_R1_001.fastq.gz
+|           ├── sample1_S1_L000_R2_001.fastq.gz
+|   └── dataset-2
 |       ├── fastq
-|           ├── input_S1_L000_R1_001.fastq.gz
-|           ├── input_S1_L000_R2_001.fastq.gz
-|   └── ds-3-name
+|           ├── sample2_S1_L000_R1_001.fastq.gz
+|           ├── sample2_S1_L000_R2_001.fastq.gz
+|   └── dataset-3
 |       ├── fastq
-|           ├── input_S1_L000_R1_001.fastq.gz
-|           ├── input_S1_L000_R2_001.fastq.gz
+|           ├── sample3_S1_L000_R1_001.fastq.gz
+|           ├── sample3_S1_L000_R2_001.fastq.gz
 ├── study-B
-|   ├── ds-1-name
+|   ├── dataset-1
 |       ├── fastq
-|           ├── input_S1_L000_R1_001.fastq.gz
-|           ├── input_S1_L000_R2_001.fastq.gz
-|   └── ds-3-name
+|           ├── sample4_S1_L000_R1_001.fastq.gz
+|           ├── sample4_S1_L000_R2_001.fastq.gz
+|   └── dataset-2
 |       ├── _fastq
 |           ├── input_S1_L000_R1_001.fastq.gz
 |           ├── input_S1_L000_R2_001.fastq.gz
@@ -91,16 +91,19 @@ A coherent folder structure facilites data analysis later on because the same sc
 #$ -l h_vmem=120G
 #$ -pe threaded 8
 
-#ref="/hpc/hub_oudenaarden/fblokzijl/data/cellranger/refdata-cellranger-GRCh38-3.0.0"
-ref="/hpc/hub_oudenaarden/cgeisenberger/genomes/refdata-cellranger-GRCh38-and-mm10-3.1.0/"
 
-cellranger count --localcores=8 --id=output --transcriptome=$ref --fastqs="./fastq" --sample=input
+#ref="/hpc/hub_oudenaarden/cgeisenberger/genomes/refdata-cellranger-GRCh38-and-mm10-3.1.0/"
+#ref="/hpc/hub_oudenaarden/cgeisenberger/genomes/refdata-cellranger-GRCh38-3.0.0/"
+ref="/hpc/hub_oudenaarden/cgeisenberger/genomes/refdata-cellranger-mm10-3.0.0/"
+
+cellranger count --localcores=8 --id=output --transcriptome=$ref --fastqs="./fastq"
 ```
 
-Copy the contents above into the script `run-cellranger.sh`. Run the following command to start one job per dataset:
+Copy the contents above into the script `run-cellranger.sh`. Run the following command **in the root directory** of your data to start one job per dataset:
 
 ```bash
-for d in study*/ds*; do qsub -wd $PWD/$d run-cellranger.sh; done
+# if you can, make the following wildcard more specific according to your folder names:
+for d in */*; do qsub -wd $PWD/$d run-cellranger.sh; done
 ```
 
 ## Merge multiple datasets
