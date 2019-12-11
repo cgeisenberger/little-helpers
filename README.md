@@ -17,8 +17,11 @@ look [here](./download-data.md)
 # Samtools Magic
 
 ```bash
-# subsample fraction <f> of reads from BAM file
-samtools view -s <f> -b in.bam > out.sam
+# sample first 1000 reads from BAM 
+samtools view -h in.bam | head -n 1000 | samtools view -bS - > out.bam
+
+# subsample fraction f from BAM file (takes longer than sampling first n reads)
+samtools view -s f -b in.bam > out.sam
 
 # SAM to BAM conversion
 samtools view -S -b in.sam > out.bam
