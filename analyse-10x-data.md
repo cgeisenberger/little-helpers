@@ -76,9 +76,9 @@ A coherent folder structure facilites data analysis later on because the same sc
 |           ├── sample4_S1_L000_R1_001.fastq.gz
 |           ├── sample4_S1_L000_R2_001.fastq.gz
 |   └── dataset-2
-|       ├── _fastq
-|           ├── input_S1_L000_R1_001.fastq.gz
-|           ├── input_S1_L000_R2_001.fastq.gz
+|       ├── fastq
+|           ├── sample5_S1_L000_R1_001.fastq.gz
+|           ├── sample5_S1_L000_R2_001.fastq.gz
 ```
 
 ## Run cellranger
