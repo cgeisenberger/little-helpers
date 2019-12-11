@@ -52,6 +52,14 @@ The main data types are:
 bamtofastq --nthreads=4 --cr11 *_Cerebella.bam ./fastq
 ```
 
+> For older data without RG tags, `bamtofastq` will place the output in `/fastq/gemgroup001`
+> use the following two-liner to clean up
+
+```bash
+mv *
+```
+
+
 ## Directory Organization
 
 A coherent folder structure facilites data analysis later on because the same script can be re-used for qsub submissions. The following directory tree is a suggestion, and the scripts later on are tailored to work within this structure. 
