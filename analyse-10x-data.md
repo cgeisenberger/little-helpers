@@ -52,8 +52,7 @@ The main data types are:
 bamtofastq --nthreads=4 --cr11 *_Cerebella.bam ./fastq
 ```
 
-> For older data without RG tags, `bamtofastq` will place the output in `/fastq/gemgroup001`
-> use the following two-liner to clean up
+For older data without RG tags, `bamtofastq` will place the output in `/fastq/gemgroup001`. Use the following two-liner to clean up a little bit.
 
 ```bash
 for d in P*; do mv ${d}/fastq/gemgroup001/* ${d}/fastq; done
@@ -112,7 +111,7 @@ Copy the contents above into the script `run-cellranger.sh`. Run the following c
 
 ```bash
 # if you can, make the following wildcard more specific according to your folder names:
-for d in */*; do qsub -wd $PWD/$d run-cellranger.sh; done
+for d in *; do echo qsub -wd $PWD/$d run-cellranger.sh; done
 ```
 
 ## Merge multiple datasets
