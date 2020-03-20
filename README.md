@@ -9,6 +9,19 @@
 * [Miscellaneous](#miscellaneous)
 
 
+# Github 
+
+```
+# Step 1: commit all changes, including .gitignore
+# Step 2: Clean repo (does not! remove files)
+git rm -r --cached .
+# Step 3: Re-add everything
+git add .
+# Step 4: commit & update
+git commit -m ".gitignore fix"
+git push origin master
+```
+
 # Data Download
 
 look [here](./download-data.md)
