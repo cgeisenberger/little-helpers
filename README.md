@@ -1,8 +1,8 @@
 # Collections
 
-* [R Programming](./r-programming.R)
-* [Bioinformatics](./bioinformatics.R)
-* [R Package Development](./posts/packages.R)
+* [R Programming](./r-programming.md)
+* [Bioinformatics](./bioinformatics.md)
+* [R Package Development](./posts/packages.md)
 
 # Specific Tasks
 
