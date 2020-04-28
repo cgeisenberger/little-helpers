@@ -1,7 +1,10 @@
-# Contents
+# Collections
 
 * [R Programming](/r-programming.R)
 * [Bioinformatics](/bioinformatics.R)
+
+
+# Specific Tasks
 
 * [Download from Data Repositories](#data-download)
 * [Samtools Magic](#samtools-magic)
@@ -12,7 +15,7 @@
 * [Miscellaneous](#miscellaneous)
 
 
-# Github 
+## Github 
 
 ```
 # Step 1: commit all changes, including .gitignore
@@ -25,12 +28,12 @@ git commit -m ".gitignore fix"
 git push origin master
 ```
 
-# Data Download
+## Data Download
 
 look [here](./download-data.md)
 
 
-# Samtools Magic
+## Samtools Magic
 
 ```bash
 # sample first 1000 reads from BAM 
@@ -44,7 +47,7 @@ samtools view -S -b in.sam > out.bam
 ```
 
 
-# Data Analysis
+## Data Analysis
 
 Extract count table and library statistics for multiple experiments
 
@@ -63,7 +66,7 @@ for d in CG*; do cp $d/count_table.csv ./data-tables/${d}.csv; done
 ```
 
 
-# Raw Sequencing Data
+## Raw Sequencing Data
 
 ## Count reads in raw data
 
