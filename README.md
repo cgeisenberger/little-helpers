@@ -1,5 +1,8 @@
 # Contents
 
+* [R Programming](/r-programming.R)
+* [Bioinformatics](/bioinformatics.R)
+
 * [Download from Data Repositories](#data-download)
 * [Samtools Magic](#samtools-magic)
 * [Data Analysis](#data-analysis)
