@@ -1,8 +1,13 @@
 # Collections
 
-* [R Programming](./r-programming.md)
+> Link to subpages
+
+* R Programming
+  - [Ressources](./r-programming.md)
+  - [Package Development](./posts/packages.md)
+* [Sequencing Data Analysis](./analysis.md)
 * [Bioinformatics](./bioinformatics.md)
-* [R Package Development](./posts/packages.md)
+
 
 # Specific Tasks
 
