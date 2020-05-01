@@ -9,7 +9,7 @@
 * Bioinformatics
   - [Ressources / Bookmarks](./bioinformatics.md)
   - [Sequencing Data Workflows](./analysis.md)
-  - [10X Genomics scRNA-Seq Data](#10x-genomics-data-analysis)
+  - [10X Genomics scRNA-Seq Data](./analyse-10x-data.md)
 
 
 # Specific Tasks
@@ -116,10 +116,6 @@ ud-demux.sh Barcode1 Barcode2
 # qsub -wd flag needs absolute path!
 for d in CG*; do qsub -wd $PWD/$d script.sh; done
 ```
-
-# 10x Genomics Data Analysis
-
-look [here](./analyse-10x-data.md)
 
 
 # Miscellaneous 
