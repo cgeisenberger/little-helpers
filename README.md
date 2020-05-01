@@ -8,6 +8,7 @@
 * [Sequencing Data Analysis](./analysis.md)
 * Bioinformatics
   - [Ressources / Bookmarks](./bioinformatics.md)
+  - [Obtaining data from Repositories (ENA/SRA)](./download-data.md)
   - [Sequencing Data Workflows](./analysis.md)
   - [10X Genomics scRNA-Seq Data](./analyse-10x-data.md)
 
@@ -34,11 +35,6 @@ git add .
 git commit -m ".gitignore fix"
 git push origin master
 ```
-
-## Data Download
-
-look [here](./download-data.md)
-
 
 ## Samtools Magic
 
