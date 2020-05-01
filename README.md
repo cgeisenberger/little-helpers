@@ -8,7 +8,7 @@
 * [Sequencing Data Analysis](./analysis.md)
 * Bioinformatics
   - [Ressources / Bookmarks](./bioinformatics.md)
-  - [Sequencing Data Analysis](./analysis.md)
+  - [Sequencing Data Workflows](./analysis.md)
   - [10X Genomics scRNA-Seq Data](#10x-genomics-data-analysis)
 
 
