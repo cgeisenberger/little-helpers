@@ -1,12 +1,15 @@
 # Collections
 
-> Chapters were migrated to their own pages
+> The following topics were moved to their own respective pages
 
 * R Programming
   - [Ressources](./r-programming.md)
   - [Package Development](./posts/packages.md)
 * [Sequencing Data Analysis](./analysis.md)
-* [Bioinformatics](./bioinformatics.md)
+* Bioinformatics
+  - [Ressources / Bookmarks](./bioinformatics.md)
+  - [Sequencing Data Analysis](./analysis.md)
+  - [10X Genomics scRNA-Seq Data](#10x-genomics-data-analysis)
 
 
 # Specific Tasks
@@ -16,7 +19,6 @@
 * [Data Analysis](#data-analysis)
 * [Raw Sequencing Data](#raw-sequencing-data)
 * [SGE cluster](#sge-cluster)
-* [Analyzing 10x scRNA-Seq Data](#10x-genomics-data-analysis)
 * [Miscellaneous](#miscellaneous)
 
 
