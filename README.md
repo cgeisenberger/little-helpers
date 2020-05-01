@@ -1,6 +1,6 @@
 # Collections
 
-> Link to subpages
+> Chapters were migrated to their own pages
 
 * R Programming
   - [Ressources](./r-programming.md)
