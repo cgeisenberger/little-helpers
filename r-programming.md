@@ -7,6 +7,11 @@ These sections contain material relating to R which I found (extremely) useful a
 * [markdown](#markdown)
 
 
+## Machine learning
+
+* Option 1: [mlr3](https://mlr3.mlr-org.com)
+* Option 2: [caret](https://topepo.github.io/caret/index.html) (or the newer [tidymodels](https://www.tidymodels.org))
+
 ## Visualization 
 
 * plotting general: [ggplot2](https://ggplot2.tidyverse.org)
