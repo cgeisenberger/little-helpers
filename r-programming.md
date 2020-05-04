@@ -9,13 +9,15 @@ These sections contain material relating to R which I found (extremely) useful a
 
 ## Machine learning
 
-* Option 1: [mlr3](https://mlr3.mlr-org.com)
-* Option 2: [tidymodels](https://www.tidymodels.org) (based on the older [caret](https://topepo.github.io/caret/index.html))
+* [mlr3](https://mlr3.mlr-org.com)
+* [tidymodels](https://www.tidymodels.org) (based on the older [caret](https://topepo.github.io/caret/index.html))
 
 ## Visualization 
 
-* plotting general: [ggplot2](https://ggplot2.tidyverse.org)
-* tables: [gt](https://github.com/rstudio/gt)
+* [ggplot2](https://ggplot2.tidyverse.org)
+* [plotly](https://plotly.com/r/)
+* specific topics
+    - tables: [gt](https://github.com/rstudio/gt)
 
 ## Genomics / Bioinformatics
 
