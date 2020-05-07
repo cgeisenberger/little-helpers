@@ -1,6 +1,6 @@
 # Collections
 
-> The following topics were moved to their own respective pages
+> The following topics are have their own pages
 
 * R Programming
   - [Ressources](./r-programming.md)
@@ -8,19 +8,20 @@
 * [Sequencing Data Analysis](./analysis.md)
 * Bioinformatics
   - [Ressources / Bookmarks](./bioinformatics.md)
-  - [Obtaining data from Repositories (ENA/SRA)](./download-data.md)
+  - [Downloading data from Repositories (ENA/SRA)](./download-data.md)
   - [Sequencing Data Workflows](./analysis.md)
   - [10X Genomics scRNA-Seq Data](./analyse-10x-data.md)
 
 
 # Specific Tasks
 
-* [Download from Data Repositories](#data-download)
-* [Samtools Magic](#samtools-magic)
+* [Git(hub)](#github)
+* [Samtools](#samtools-magic)
 * [Data Analysis](#data-analysis)
 * [Raw Sequencing Data](#raw-sequencing-data)
 * [SGE cluster](#sge-cluster)
 * [Miscellaneous](#miscellaneous)
+
 
 
 ## Github 
@@ -36,6 +37,8 @@ git commit -m ".gitignore fix"
 git push origin master
 ```
 
+
+
 ## Samtools Magic
 
 ```bash
@@ -48,6 +51,7 @@ samtools view -s f -b in.bam > out.sam
 # SAM to BAM conversion
 samtools view -S -b in.sam > out.bam
 ```
+
 
 
 ## Data Analysis
