@@ -11,16 +11,27 @@
 
 ## Demultiplexing 
 
-All *fastq.gz* files need to be in the same root directory, add **-merge _** if data is split by lanes
+> All *fastq.gz* files need to be in the same root directory
+> Commands assume that files are split by lane (**-merge _** flag added)
+> add *-ignoreMethods none* flag if processing Nla-Bisulfite libraries
 
 ```bash
-
-# add '-ignoreMethods none' flag if processing Nla-Bisulfite libraries
-#submission.py -y --nenv "source $path_ve; demux.py -merge _ *.fastq.gz --y"
-
-path_ve="/hpc/hub_oudenaarden/bdebarbanson/virtualEnvironments/py36/bin/activate"
-submission.py -y --nenv "source $path_ve; demux.py *.fastq.gz -merge _ --y"
+# create folder for raw data and move files
+mkdir raw
+find /path/to/files -name "CG*" -type f | xargs -I % mv % ./raw
+cd raw
 ```
+
+ Will process **sequentially**:
+
+```bash
+ve="/hpc/hub_oudenaarden/bdebarbanson/virtualEnvironments/py36/bin/activate"
+submission.py -y --nenv "source $ve; demux.py *.fastq.gz -merge _ --y"
+```
+
+Process **in parallel**:
+
+copy and paste [demultiplexing script](./scripts/demux.sh), then run `./demux.sh`
 
 
 ## Adapter trimming
