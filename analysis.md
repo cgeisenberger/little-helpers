@@ -1,7 +1,5 @@
 # Workflows for single-cell data analysis
 
-
-* [General](#general)
 * [Demultiplexing](#demultiplexing)
 * [Adapter trimming](#adapter-trimming)
 * [Mapping](#mapping)
@@ -9,21 +7,6 @@
 * [Extract Data](#extract-data)
 * [QC & Download](#qc-and-download)
 
-
-## General
-
-
-The following commands can be used to submit a script in multiple subdirectories:
-
-```bash
-# create script:
-touch script.sh
-chmod 755 script.sh
-nano script.sh
-
-# copy code into script, then run qsub:
-for d in CG*; do qsub -wd $PWD/$d script.sh; done
-```
 
 
 ## Demultiplexing 
