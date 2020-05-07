@@ -100,6 +100,12 @@ ud-demux.sh Barcode1 Barcode2
 
 # SGE cluster
 
+
+| flag | meaning |
+|------|---------|
+| bla  | bla     |
+
+
 ## Generic qsub header
 
 ```bash
@@ -108,6 +114,7 @@ ud-demux.sh Barcode1 Barcode2
 #$ -cwd
 #$ -l h_rt=1:00:00
 #$ -l h_vmem=10G
+#$ -pe threaded 1
 ```
 
 ## Execute script in multiple subdirectories
