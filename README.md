@@ -106,7 +106,13 @@ ud-demux.sh Barcode1 Barcode2
 | bla  | bla     |
 
 
-## Generic qsub header
+### Pipe into qsub command
+
+```bash
+echo "command -x -y -z input output" | qsub -cwd -V -l h_rt="1:00:00" -l h_vmem="16G"
+```
+
+### Generic qsub header
 
 ```bash
 #! /bin/bash
@@ -117,7 +123,7 @@ ud-demux.sh Barcode1 Barcode2
 #$ -pe threaded 1
 ```
 
-## Execute script in multiple subdirectories
+### Execute script in multiple subdirectories
 
 ```bash
 # qsub -wd flag needs absolute path!
