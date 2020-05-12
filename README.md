@@ -26,9 +26,23 @@
 * [Data Analysis](#data-analysis)
 * [Raw Sequencing Data](#raw-sequencing-data)
 * [SGE cluster](#sge-cluster)
-* [Miscellaneous](#miscellaneous)
+* [UNIX command line](#command-line)
 
 
+
+## Command Line 
+
+### Find and copy files
+
+```bash
+find dir1 -type f -name "PATTERN*" -exec cp {} dir2 \;
+```
+
+### Remove prefix from multiple files
+
+```bash
+for file in prefix*; do mv "$file" "${file#prefix}"; done
+```
 
 ## Github 
 
@@ -134,13 +148,4 @@ echo "command -x -y -z input output" | qsub -cwd -V -l h_rt="1:00:00" -l h_vmem=
 ```bash
 # qsub -wd flag needs absolute path!
 for d in CG*; do qsub -wd $PWD/$d script.sh; done
-```
-
-
-# Miscellaneous 
-
-## Find and copy files
-
-```bash
-find dir1 -type f -name "PATTERN*" -exec cp {} dir2 \;
 ```
