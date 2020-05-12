@@ -9,7 +9,8 @@
   - [Downloading data from Repositories (ENA/SRA)](./download-data.md)
   - [Sequencing Data Workflows](./analysis.md)
   - [10X Genomics scRNA-Seq Data](./analyse-10x-data.md)
-
+* Visualization
+  - [Hive plots](http://www.hiveplot.com)
 
 
 # Links
