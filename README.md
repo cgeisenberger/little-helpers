@@ -1,7 +1,5 @@
 # Collections
 
-> The following topics are have their own pages
-
 * R Programming
   - [Ressources](./r-programming.md)
   - [Package Development](./posts/packages.md)
@@ -11,6 +9,13 @@
   - [Downloading data from Repositories (ENA/SRA)](./download-data.md)
   - [Sequencing Data Workflows](./analysis.md)
   - [10X Genomics scRNA-Seq Data](./analyse-10x-data.md)
+
+
+
+# Links
+
+* [awesome-single-cell](https://github.com/seandavi/awesome-single-cell)
+
 
 
 # Specific Tasks
