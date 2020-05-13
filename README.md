@@ -3,23 +3,20 @@
 * R Programming
   - [Ressources](./r-programming.md)
   - [Package Development](./posts/packages.md)
-* [Sequencing Data Analysis](./analysis.md)
 * Bioinformatics
   - [Ressources / Bookmarks](./bioinformatics.md)
   - [Downloading data from Repositories (ENA/SRA)](./download-data.md)
   - [Sequencing Data Workflows](./analysis.md)
   - [10X Genomics scRNA-Seq Data](./analyse-10x-data.md)
+* Single-cell 
+  - [Data Analysis Workflows](./analysis.md)
+  - list of software: [awesome-single-cell](https://github.com/seandavi/awesome-single-cell)
 * Visualization
   - [Hive plots](http://www.hiveplot.com)
 
 
-# Links
 
-* [awesome-single-cell](https://github.com/seandavi/awesome-single-cell)
-
-
-
-# Specific Tasks
+# Code Snippets
 
 * [Git(hub)](#github)
 * [Samtools](#samtools-magic)
