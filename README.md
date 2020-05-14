@@ -18,13 +18,11 @@
 
 # Code Snippets
 
-* [Git(hub)](#github)
-* [Samtools](#samtools-magic)
-* [Data Analysis](#data-analysis)
-* [Raw Sequencing Data](#raw-sequencing-data)
-* [SGE cluster](#sge-cluster)
 * [UNIX command line](#command-line)
-
+* [Samtools](#samtools-magic)
+* [(Raw) Sequencing Data](#raw-sequencing-data)
+* [SGE cluster](#sge-cluster)
+* [Git(hub)](#github)
 
 
 ## Command Line 
@@ -41,22 +39,9 @@ find dir1 -type f -name "PATTERN*" -exec cp {} dir2 \;
 for file in prefix*; do mv "$file" "${file#prefix}"; done
 ```
 
-## Github 
-
-```
-# Step 1: commit all changes, including .gitignore
-# Step 2: Clean repo (does not! remove files)
-git rm -r --cached .
-# Step 3: Re-add everything
-git add .
-# Step 4: commit & update
-git commit -m ".gitignore fix"
-git push origin master
-```
 
 
-
-## Samtools Magic
+## Samtools
 
 ```bash
 # sample first 1000 reads from BAM 
@@ -71,34 +56,15 @@ samtools view -S -b in.sam > out.bam
 
 
 
-## Data Analysis
-
-Extract count table and library statistics for multiple experiments
-
-```bash
-# navigate to root directory
-mkdir data-tables lib-plots lib-stats
-
-# copy plots
-for d in CG*; do mkdir ./lib-plots/$d; cp $d/plots/* ./lib-plots/$d; done
-
-# copy library stats
-find CG*/tables -type f -name *.csv -exec cp {} lib-stats/ \;
-
-# copy data tables
-for d in CG*; do cp $d/count_table.csv ./data-tables/${d}.csv; done
-```
-
-
 ## Raw Sequencing Data
 
-## Count reads in raw data
+### Count reads in raw data
 
 ```bash
 for f in *R1*fastq.gz; do i=$(zcat $f | wc -l);echo $f $i >> counts.txt; done
 ```
 
-## Demultiplex Undetermined.fastq.gz files
+### Demultiplex Undetermined.fastq.gz files
 
 RPI barcodes can be found [here](./files/rpix.csv).  
 Code for [ud-count.sh](./scripts/ud-count.sh) and [ud-demux.sh](./scripts/ud-demux.sh)
@@ -115,7 +81,9 @@ ud-count.sh Undetermined.R1.fastq
 ud-demux.sh Barcode1 Barcode2
 ```
 
-# SGE cluster
+
+
+## SGE cluster
 
 
 | flag | meaning |
@@ -146,3 +114,20 @@ echo "command -x -y -z input output" | qsub -cwd -V -l h_rt="1:00:00" -l h_vmem=
 # qsub -wd flag needs absolute path!
 for d in CG*; do qsub -wd $PWD/$d script.sh; done
 ```
+
+
+
+## Github 
+
+```
+# Step 1: commit all changes, including .gitignore
+# Step 2: Clean repo (does not! remove files)
+git rm -r --cached .
+# Step 3: Re-add everything
+git add .
+# Step 4: commit & update
+git commit -m ".gitignore fix"
+git push origin master
+```
+
+
