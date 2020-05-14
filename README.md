@@ -19,7 +19,7 @@
 # Code Snippets
 
 * [UNIX command line](#command-line)
-* [Samtools](#samtools-magic)
+* [Samtools](#samtools)
 * [(Raw) Sequencing Data](#raw-sequencing-data)
 * [SGE cluster](#sge-cluster)
 * [Git(hub)](#github)
