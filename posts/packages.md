@@ -1,5 +1,15 @@
 ### Creating R packages (tl;dr)
 
+
+## List of good ressources 
+
+* Intro to get up and running: [Hilary Parker's blog](https://hilaryparker.com/2014/04/29/writing-an-r-package-from-scratch/)
+* Best one-stop ressource: [Hadley Wickham's R Packages](http://r-pkgs.had.co.nz)
+* The official: [Writing R Extensions](https://cran.r-project.org/doc/manuals/R-exts.html#Creating-R-packages)
+
+
+## The tl;dr version to follow along
+
 * general
   - reference: [Hadley Wickhams book](http://r-pkgs.had.co.nz)
   - install: `devtools`, `roxygen2`, `rmarkdown`, `testthat`
@@ -51,7 +61,7 @@
   
 
 
-### A few more pointers
+## A few more pointers
 
 * use `.Rbuildignore` to differentiate package and other content
 * [packages ≠ libraries](http://r-pkgs.had.co.nz/package.html#library)
