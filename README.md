@@ -1,7 +1,7 @@
 # Collections
 
 * R Programming
-  - [Ressources](./r-programming.md)
+  - [List of useful ressources](./r-programming.md)
   - [Package Development](./posts/packages.md)
 * Bioinformatics
   - [Ressources / Bookmarks](./bioinformatics.md)
