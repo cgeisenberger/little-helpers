@@ -3,8 +3,37 @@ These sections contain material relating to R which I found (extremely) useful a
 
 ## Table Of Contents
 
-* [shiny](#r-shiny)
-* [markdown](#markdown)
+* [RStudio's Shiny](#r-shiny)
+* [R Markdown](#markdown)
+* [R Programming](#r-programming)
+* [Machine Learning](#machine-learning)
+* [Visualization](#visualization)
+* [Bioinformatics](#bioinformatics)
+    - [General](#general)
+    - [Bioconductor](#bioconductor)
+
+
+
+## R Shiny
+
+* [First stop: RStudio's Shiny](https://shiny.rstudio.com)
+* [Hadley Wickham's Mastering Shiny](https://mastering-shiny.org)
+* [Shinyapps.io User Guide](https://docs.rstudio.com/shinyapps.io/index.html)
+
+
+## Markdown
+
+* [RStudios R Markdown Page](https://rmarkdown.rstudio.com/index.html)
+* [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
+
+
+## R Programming
+
+* Source code inspection: [lint(er)](https://en.wikipedia.org/wiki/Lint_(software))
+* 
+* Coding Style
+    - [Tidyverse Style Guide](https://style.tidyverse.org)
+    - [Google’s R Style Guide](https://google.github.io/styleguide/Rguide.html)
 
 
 ## Machine learning
@@ -12,14 +41,18 @@ These sections contain material relating to R which I found (extremely) useful a
 * [mlr3](https://mlr3.mlr-org.com)
 * [tidymodels](https://www.tidymodels.org) (based on the older [caret](https://topepo.github.io/caret/index.html))
 
+
 ## Visualization 
 
 * [ggplot2](https://ggplot2.tidyverse.org)
 * [plotly](https://plotly.com/r/)
 * specific topics
     - tables: [gt](https://github.com/rstudio/gt)
+    - more complex layouts: [patchwork](https://github.com/thomasp85/patchwork)
 
-## Genomics / Bioinformatics
+
+## Bioinformatics
+
 
 ### General
 
@@ -27,7 +60,8 @@ These sections contain material relating to R which I found (extremely) useful a
 * [Talk: Genomics in R](https://blog.liang2.tw/2019Talk-Genomics-in-R/)
 * [list of important file formats](https://www.encodeproject.org/help/file-formats/)
 
-### R packages
+
+### Bioconductor
 
 * BAM files: Rsamtools and GenomicAlignments
 * Genomic data: GenomicRanges (& IRanges, GenomicAlignments, GenomicFeatures, VariantAnnotation and rtracklayer)
@@ -44,37 +78,6 @@ These sections contain material relating to R which I found (extremely) useful a
 * Transcript Metadata
     - [GenomicFeatures](https://bioconductor.org/packages/release/bioc/html/GenomicFeatures.html)
     - TxDb objects
-
-## R Shiny
-
-* [First stop: RStudio's Shiny](https://shiny.rstudio.com)
-* [Hadley Wickham's Mastering Shiny](https://mastering-shiny.org)
-* [Shinyapps.io User Guide](https://docs.rstudio.com/shinyapps.io/index.html)
-
-
-
-## Software Design
-
-* automatic source code inspection: [lint(er)](https://en.wikipedia.org/wiki/Lint_(software))
-
-
-
-## Markdown
-
-* [RStudios R Markdown Page](https://rmarkdown.rstudio.com/index.html)
-* [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
-
-
-
-## Coding Style
-
-* [Tidyverse Style Guide](https://style.tidyverse.org)
-* [Google’s R Style Guide](https://google.github.io/styleguide/Rguide.html)
-
-### Keypoints
-
-* use [formatr](https://yihui.org/formatr/) or [lintr](https://github.com/jimhester/lintr) to clean code
-
 
 
 ## Building packages
