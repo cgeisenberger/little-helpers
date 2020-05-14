@@ -255,6 +255,8 @@ for d in CG*; do echo "source /hpc/hub_oudenaarden/bdebarbanson/virtualEnvironme
 
 ### Collect scChiC-Seq data
 
+Extract count tables and library statistics for multiple experiments
+
 ```bash
 # navigate to root directory
 mkdir data-tables lib-plots lib-stats
@@ -268,3 +270,4 @@ find CG*/tables -type f -name "*.csv" -exec cp {} lib-stats/ \;
 # copy data tables
 for d in CG*; do cp $d/count_table.csv ./data-tables/${d}.csv; done
 ```
+
