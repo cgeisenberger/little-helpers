@@ -1,10 +1,10 @@
 # Workflows for single-cell data analysis
 
 * [Demultiplexing](#demultiplexing)
-* [Adapter trimming](#adapter-trimming)
+* [Trimming](#adapter-trimming)
 * [Mapping](#mapping)
 * [BAM Tagging](#bam-tagging)
-* [Extract Data](#extract-data)
+* [Data extraction](#extract-data)
 * [QC & Download](#qc-and-download)
 
 
