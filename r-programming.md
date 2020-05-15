@@ -40,6 +40,9 @@ These sections contain material relating to R which I found (extremely) useful a
 
 * [mlr3](https://mlr3.mlr-org.com)
 * [tidymodels](https://www.tidymodels.org) (based on the older [caret](https://topepo.github.io/caret/index.html))
+* [e1071]()
+* [glmnet]()
+* [randomForest]()
 
 
 ## Visualization 
