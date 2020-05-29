@@ -23,6 +23,7 @@
 * [(Raw) Sequencing Data](#raw-sequencing-data)
 * [SGE cluster](#sge-cluster)
 * [Git(hub)](#github)
+* [Working with BAM files](#bam-files)
 
 
 ## Command Line 
@@ -130,4 +131,44 @@ git commit -m ".gitignore fix"
 git push origin master
 ```
 
+
+## BAM Files
+
+
+### Split BAM Files based on Cell Tag
+
+```bash
+#! /bin/bash
+#$ -V
+#$ -cwd
+#$ -l h_rt=2:00:00
+#$ -l h_vmem=16G
+
+
+conda activate default
+
+mkdir bam-single-cell
+
+bamtools split -tag SM -in tagged.bam
+mv tagged.TAG_*.bam bam-single-cell
+
+```
+
+### Convert BAM files to BigWig 
+
+```bash
+#! /bin/bash
+#$ -V
+#$ -cwd
+#$ -l h_rt=4:00:00
+#$ -l h_vmem=32G
+#$ -pe threaded 4
+
+
+conda activate default
+
+bamCoverage --bam CG-scChIC-TAPS-K562-K36m3_35.bam \
+--outFileName coverage.bigWig \
+--numberOfProcessors 4
+```
 
