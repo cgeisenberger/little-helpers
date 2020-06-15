@@ -16,6 +16,7 @@
 
 
 
+
 # Code Snippets
 
 * [UNIX command line](#command-line)
@@ -24,6 +25,8 @@
 * [SGE cluster](#sge-cluster)
 * [Git(hub)](#github)
 * [Working with BAM files](#bam-files)
+* [TAPS Data Analaysis](#taps-analysis)
+
 
 
 ## Command Line 
@@ -172,3 +175,12 @@ bamCoverage --bam CG-scChIC-TAPS-K562-K36m3_35.bam \
 --numberOfProcessors 4
 ```
 
+
+## TAPS analysis
+
+### Split tagged BAM file per single cell
+
+
+
+
+### Extract CpG Methyl BED files
