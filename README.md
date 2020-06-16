@@ -16,16 +16,19 @@
 
 
 
-
 # Code Snippets
 
-* [UNIX command line](#command-line)
-* [Samtools](#samtools)
-* [(Raw) Sequencing Data](#raw-sequencing-data)
-* [SGE cluster](#sge-cluster)
-* [Git(hub)](#github)
-* [Working with BAM files](#bam-files)
-* [TAPS Data Analaysis](#taps-analysis)
+* General Tools
+  - [UNIX command line](#command-line)
+  - [Git(hub)](#github)
+* Bioinformatics
+  - [NGS (raw) data](#ngs-raw-data)
+  - [Samtools](#samtools)
+  - [BAM file manipulation](#bam-files)
+* Working on cluster
+  - [SGE cluster](#sge-cluster)
+* Data analysis
+  - [TAPS Data Analaysis](#taps-analysis)
 
 
 
@@ -45,24 +48,24 @@ for file in prefix*; do mv "$file" "${file#prefix}"; done
 
 
 
-## Samtools
+## Github 
 
-```bash
-# sample first 1000 reads from BAM 
-samtools view -h in.bam | head -n 1000 | samtools view -bS - > out.bam
-
-# subsample fraction f from BAM file (takes longer than sampling first n reads)
-samtools view -s f -b in.bam > out.sam
-
-# SAM to BAM conversion
-samtools view -S -b in.sam > out.bam
+```
+# Step 1: commit all changes, including .gitignore
+# Step 2: Clean repo (does not! remove files)
+git rm -r --cached .
+# Step 3: Re-add everything
+git add .
+# Step 4: commit & update
+git commit -m ".gitignore fix"
+git push origin master
 ```
 
 
 
-## Raw Sequencing Data
+## NGS Raw Data
 
-### Count reads in raw data
+### Count reads in (zipped) fastq file
 
 ```bash
 for f in *R1*fastq.gz; do i=$(zcat $f | wc -l);echo $f $i >> counts.txt; done
@@ -87,52 +90,19 @@ ud-demux.sh Barcode1 Barcode2
 
 
 
-## SGE cluster
-
-
-| flag | meaning |
-|------|---------|
-| bla  | bla     |
-
-
-### Pipe into qsub command
+## Samtools
 
 ```bash
-echo "command -x -y -z input output" | qsub -cwd -V -l h_rt="1:00:00" -l h_vmem="16G"
+# sample first 1000 reads from BAM 
+samtools view -h in.bam | head -n 1000 | samtools view -bS - > out.bam
+
+# subsample fraction f from BAM file (takes longer than sampling first n reads)
+samtools view -s f -b in.bam > out.sam
+
+# SAM to BAM conversion
+samtools view -S -b in.sam > out.bam
 ```
 
-### Generic qsub header
-
-```bash
-#! /bin/bash
-#$ -V
-#$ -cwd
-#$ -l h_rt=1:00:00
-#$ -l h_vmem=10G
-#$ -pe threaded 1
-```
-
-### Execute script in multiple subdirectories
-
-```bash
-# qsub -wd flag needs absolute path!
-for d in CG*; do qsub -wd $PWD/$d script.sh; done
-```
-
-
-
-## Github 
-
-```
-# Step 1: commit all changes, including .gitignore
-# Step 2: Clean repo (does not! remove files)
-git rm -r --cached .
-# Step 3: Re-add everything
-git add .
-# Step 4: commit & update
-git commit -m ".gitignore fix"
-git push origin master
-```
 
 
 ## BAM Files
@@ -174,6 +144,54 @@ bamCoverage --bam CG-scChIC-TAPS-K562-K36m3_35.bam \
 --outFileName coverage.bigWig \
 --numberOfProcessors 4
 ```
+
+
+
+## SGE cluster
+
+
+### File transfer
+
+```
+Option 1:
+scp t1:/path/to/remote /path/to/local
+
+Option 2:
+rsync -P -e ssh cgeisenberger@t1:/path/to/remote /path/to/local
+```
+
+
+| flag | meaning |
+|------|---------|
+| bla  | bla     |
+
+
+### Pipe into qsub command
+
+```bash
+echo "command -x -y -z input output" | qsub -cwd -V -l h_rt="1:00:00" -l h_vmem="16G"
+```
+
+### Generic qsub header
+
+```bash
+#! /bin/bash
+#$ -V
+#$ -cwd
+#$ -l h_rt=1:00:00
+#$ -l h_vmem=10G
+#$ -pe threaded 1
+```
+
+### Execute script in multiple subdirectories
+
+```bash
+# qsub -wd flag needs absolute path!
+for d in CG*; do qsub -wd $PWD/$d script.sh; done
+```
+
+
+
 
 
 ## TAPS analysis
