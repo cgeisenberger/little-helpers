@@ -31,7 +31,7 @@ submission.py -y --nenv "source $ve; demux.py *.fastq.gz -merge _ --y"
 
 ### Parallel processing
 
-copy and paste [demultiplexing script](./scripts/demux.sh), then run `./demux.sh`
+copy and paste [demultiplexing script](./scripts/demux.sh), then run `./demux.sh` in directory *containing the fastq files*
 
 
 
