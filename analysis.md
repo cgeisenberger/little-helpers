@@ -58,10 +58,11 @@ copy and paste [demultiplexing script](./scripts/demux.sh), then run `./demux.sh
 ve="/hpc/hub_oudenaarden/bdebarbanson/virtualEnvironments/py36/bin/activate"
 source $ve
 
-trim_galore --path_to_cutadapt $pathCa --fastqc --gzip --paired demultiplexedR1.fastq.gz demultiplexedR2.fastq.gz
+trim_galore --fastqc --gzip --paired demultiplexedR1.fastq.gz demultiplexedR2.fastq.gz
 mv demultiplexedR1_val_1.fq.gz trimmed.R1.fastq.gz
 mv demultiplexedR2_val_2.fq.gz trimmed.R2.fastq.gz
 
+# set path to cutadapt manually if not using virtuel env via --path_to_cutadapt $pathCa 
 # deprecated: --clip_R2 9 --three_prime_clip_R1 3 --three_prime_clip_R2 3
 ```
 
