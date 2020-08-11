@@ -47,6 +47,9 @@ copy and paste [demultiplexing script](./scripts/demux.sh), then run `./demux.sh
 #$ -cwd
 #$ -l h_rt=8:00:00
 
+ve="/hpc/hub_oudenaarden/bdebarbanson/virtualEnvironments/py36/bin/activate"
+source $ve
+
 trim_galore --path_to_cutadapt $pathCa --fastqc --gzip --paired demultiplexedR1.fastq.gz demultiplexedR2.fastq.gz
 mv demultiplexedR1_val_1.fq.gz trimmed.R1.fastq.gz
 mv demultiplexedR2_val_2.fq.gz trimmed.R2.fastq.gz
