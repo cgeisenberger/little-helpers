@@ -8,6 +8,14 @@
 * [QC & Download](#qc-and-download)
 
 
+## Misc
+
+Run command in multiple subdirectories
+
+```bash
+# qsub -wd flag needs absolute path!
+for d in CG*; do qsub -wd $PWD/$d script.sh; done
+```
 
 ## Demultiplexing 
 
