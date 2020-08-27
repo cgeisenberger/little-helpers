@@ -30,7 +30,6 @@ These sections contain material relating to R which I found (extremely) useful a
 ## R Programming
 
 * Source code inspection: [lint(er)](https://en.wikipedia.org/wiki/Lint_(software))
-* 
 * Coding Style
     - [Tidyverse Style Guide](https://style.tidyverse.org)
     - [Google’s R Style Guide](https://google.github.io/styleguide/Rguide.html)
@@ -48,6 +47,9 @@ These sections contain material relating to R which I found (extremely) useful a
 ## Visualization 
 
 * [ggplot2](https://ggplot2.tidyverse.org)
+    - [cowplot](https://github.com/wilkelab/cowplot)
+    - [naiar](https://github.com/njtierney/naniar)
+    - [ggforce](https://github.com/thomasp85/ggforce)
 * [plotly](https://plotly.com/r/)
 * specific topics
     - tables: [gt](https://github.com/rstudio/gt)
