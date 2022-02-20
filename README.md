@@ -1,5 +1,7 @@
 # Collections
 
+* Sequencing technology
+  - [Ambry Genetics Webinar](https://www.youtube.com/watch?v=6jf_6STEnI4)
 * R Programming
   - [List of useful ressources](./r-programming.md)
   - [Package Development](./posts/packages.md)
