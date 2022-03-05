@@ -2,6 +2,9 @@
 
 * Sequencing technology
   - [Ambry Genetics Webinar](https://www.youtube.com/watch?v=6jf_6STEnI4)
+* Workflow managers
+  - [Nextflow](https://www.nextflow.io)
+  - [snakemake](https://snakemake.readthedocs.io/en/stable/)
 * R Programming
   - [List of useful ressources](./r-programming.md)
   - [Package Development](./posts/packages.md)
