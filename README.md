@@ -45,6 +45,13 @@
 find dir1 -type f -name "PATTERN*" -exec cp {} dir2 \;
 ```
 
+### Batch rename files (like idats)
+
+```bash
+rename -n 's/GSM[^_]*_//' GSM*
+```
+
+
 ### Remove prefix from multiple files
 
 ```bash
