@@ -48,6 +48,7 @@ for file in prefix*; do mv "$file" "${file#prefix}"; done
 
 ```bash
 for f in *.bam; do o=$(basename -s .bam ${f}); samtools sort $f -o "$o.sorted.bam"; done
+for f in *.sorted.bam; do samtools index $f; done
 ```
 
 ### Count reads in (zipped) fastq file
