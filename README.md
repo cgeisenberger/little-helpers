@@ -53,6 +53,11 @@ rename -n 's/GSM[^_]*_//' GSM*
 for file in prefix*; do mv "$file" "${file#prefix}"; done
 ```
 
+### Run command for multiple files and rename
+
+```bash
+for f in *.bam; do o=$(basename -s .bam ${f}); samtools sort $f -o "$o.sorted.bam"; done
+```
 
 
 ## Github 
