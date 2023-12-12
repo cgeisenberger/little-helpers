@@ -21,16 +21,7 @@
 
 
 
-# Code Snippets
-
-* General Tools
-  - [UNIX command line](#command-line)
-  - [Git(hub)](#github)
-* Bioinformatics
-  - [NGS (raw) data](#ngs-raw-data)
-  - [Samtools](#samtools)
-  - [BAM file manipulation](#bam-files)
-
+# One-liners
 
 ## Command Line 
 
@@ -53,10 +44,16 @@ rename -n 's/GSM[^_]*_//' GSM*
 for file in prefix*; do mv "$file" "${file#prefix}"; done
 ```
 
-### Run command for multiple files and rename
+### Sort and index bam files 
 
 ```bash
 for f in *.bam; do o=$(basename -s .bam ${f}); samtools sort $f -o "$o.sorted.bam"; done
+```
+
+### Count reads in (zipped) fastq file
+
+```bash
+for f in *R1*fastq.gz; do i=$(zcat $f | wc -l);echo $f $i >> counts.txt; done
 ```
 
 
@@ -74,14 +71,7 @@ git push origin master
 ```
 
 
-
-## NGS Raw Data
-
-### Count reads in (zipped) fastq file
-
-```bash
-for f in *R1*fastq.gz; do i=$(zcat $f | wc -l);echo $f $i >> counts.txt; done
-```
+## Sequencing Data
 
 ### Demultiplex Undetermined.fastq.gz files
 
@@ -99,8 +89,6 @@ ud-count.sh Undetermined.R1.fastq
 # Extract data
 ud-demux.sh Barcode1 Barcode2
 ```
-
-
 
 ## Samtools
 
