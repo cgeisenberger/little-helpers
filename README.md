@@ -25,37 +25,32 @@
 
 ## Command Line 
 
-### Find and copy files
-
 ```bash
+# find and copy files
 find dir1 -type f -name "PATTERN*" -exec cp {} dir2 \;
-```
 
-### Batch rename files (like idats)
-
-```bash
+# batch rename files (like idats)
 rename -n 's/GSM[^_]*_//' GSM*
-```
 
-
-### Remove prefix from multiple files
-
-```bash
+# remove prefix from multiple files
 for file in prefix*; do mv "$file" "${file#prefix}"; done
-```
 
-### Sort and index bam files 
-
-```bash
+# sort and index bam files
 for f in *.bam; do o=$(basename -s .bam ${f}); samtools sort $f -o "$o.sorted.bam"; done
 for f in *.sorted.bam; do samtools index $f; done
-```
 
-### Count reads in (zipped) fastq file
-
-```bash
+# count reads in (zipped) fastq files
 for f in *R1*fastq.gz; do i=$(zcat $f | wc -l);echo $f $i >> counts.txt; done
 ```
+
+## Conda
+
+```python
+conda info
+conda env list
+conda list
+conda install -n [env] <package>
+````
 
 
 ## Github 
