@@ -20,7 +20,6 @@
   - [Hive plots](http://www.hiveplot.com)
 
 
-
 # One-liners
 
 ## Command Line 
@@ -34,13 +33,6 @@ rename -n 's/GSM[^_]*_//' GSM*
 
 # remove prefix from multiple files
 for file in prefix*; do mv "$file" "${file#prefix}"; done
-
-# sort and index bam files
-for f in *.bam; do o=$(basename -s .bam ${f}); samtools sort $f -o "$o.sorted.bam"; done
-for f in *.sorted.bam; do samtools index $f; done
-
-# count reads in (zipped) fastq files
-for f in *R1*fastq.gz; do i=$(zcat $f | wc -l);echo $f $i >> counts.txt; done
 ```
 
 ## Conda
@@ -69,74 +61,39 @@ git push origin master
 
 ## Sequencing Data
 
-### Demultiplex Undetermined.fastq.gz files
+### Sequencing saturation analysis 
 
-RPI barcodes can be found [here](./files/rpix.csv).  
-Code for [ud-count.sh](./scripts/ud-count.sh) and [ud-demux.sh](./scripts/ud-demux.sh)
+Uses [preseq](http://smithlabresearch.org/software/preseq/) published in [Nature Methods 2013](http://www.nature.com/nmeth/journal/vaop/ncurrent/full/nmeth.2375.html).
 
 ```bash
-# Find and concatenate input files
-find $PWD -type f -name "Und*R1*fastq.gz" | xargs zcat > Undetermined.R1.fastq
-find $PWD -type f -name "Und*R2*fastq.gz" | xargs zcat > Undetermined.R2.fastq
+preseq lc_extrap -e 10000000 -s 200000 -o future_yield.txt -B infile.bam
 
-# Count barcodes (ouputs undeterminedBc.txt)
-ud-count.sh Undetermined.R1.fastq
-
-# Extract data
-ud-demux.sh Barcode1 Barcode2
+# -e = max. no of extrapolated reads
+# -s = stepsize
 ```
 
-## Samtools
+### SAM and BAM files
 
 ```bash
-# sample first 1000 reads from BAM 
+# count reads in (zipped) fastq files
+for f in *R1*fastq.gz; do i=$(zcat $f | wc -l);echo $f $i >> counts.txt; done
+
+# sort and index bam files
+for f in *.bam; do o=$(basename -s .bam ${f}); samtools sort $f -o "$o.sorted.bam"; done
+for f in *.sorted.bam; do samtools index $f; done
+
+# Sample first 1000 reads from BAM 
 samtools view -h in.bam | head -n 1000 | samtools view -bS - > out.bam
 
-# subsample fraction f from BAM file (takes longer than sampling first n reads)
+# Subsample fraction f from BAM file (takes longer than sampling first n reads)
 samtools view -s f -b in.bam > out.sam
 
 # SAM to BAM conversion
 samtools view -S -b in.sam > out.bam
-```
 
-
-
-## BAM Files
-
-
-### Split BAM Files based on Cell Tag
-
-```bash
-#! /bin/bash
-#$ -V
-#$ -cwd
-#$ -l h_rt=2:00:00
-#$ -l h_vmem=16G
-
-
-conda activate default
-
-mkdir bam-single-cell
-
+# Split based on value in <tag> (such as cell barcodes)
 bamtools split -tag SM -in tagged.bam
-mv tagged.TAG_*.bam bam-single-cell
 
-```
-
-### Convert BAM files to BigWig 
-
-```bash
-#! /bin/bash
-#$ -V
-#$ -cwd
-#$ -l h_rt=4:00:00
-#$ -l h_vmem=32G
-#$ -pe threaded 4
-
-
-conda activate default
-
-bamCoverage --bam CG-scChIC-TAPS-K562-K36m3_35.bam \
---outFileName coverage.bigWig \
---numberOfProcessors 4
+# convert to BigWig
+bamCoverage --bam infile.bam --outFileName coverage.bigWig --numberOfProcessors 4
 ```
