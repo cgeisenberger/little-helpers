@@ -1,4 +1,3 @@
-```markdown
 # Nano Keyboard Shortcuts for Faster Navigation and Editing
 
 Here are some useful nano keyboard shortcuts that can speed up your navigation and editing:
@@ -34,4 +33,3 @@ Here are some useful nano keyboard shortcuts that can speed up your navigation a
 - `Ctrl + X`: Close the current buffer.
   
 Using these shortcuts, you can navigate, edit, and manage files faster in nano!
-```
