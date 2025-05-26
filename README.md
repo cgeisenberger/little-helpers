@@ -18,8 +18,8 @@
 ## Content
 
 * [BASH oneliners](#BASH-oneliners)
-* [Sequencing Data](Sequencing-Data)
-  - [Saturation analysis](Saturation-analysis)
+* [Sequencing Data](#Sequencing-Data)
+  - [Saturation analysis](#Saturation-analysis)
   - [Working with SAM/BAM files](#Working-with-SAM/BAM-files)
 * [Folder Structure for Data Science and Bioinformatics](#Folder-Structure-for-Data-Science-and-Bioinformatics)
 
