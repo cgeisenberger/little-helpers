@@ -35,6 +35,9 @@ rename -n 's/GSM[^_]*_//' GSM*
 
 # remove prefix from multiple files
 for file in prefix*; do mv "$file" "${file#prefix}"; done
+
+# convert multiple PDFs to TIFFs (useful for publications)
+for f in *.pdf; do sips -s dpiWidth 600 -s dpiHeight 600 -s format tiff $f --out $(basename -s pdf $f)tif; done
 ```
 
 ## Sequencing Data
