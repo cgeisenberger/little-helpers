@@ -10,7 +10,7 @@
 
 ## Links
 * [Nano shortcuts](./nano.md)
-* [ownloading data from SRA](./sra.md)
+* [Downloading data from SRA](./sra.md)
 
 # BASH oneliners
 
@@ -36,7 +36,7 @@ More Information on bcl-convert on [Illumina website](https://knowledge.illumina
 
 ```bash
 # Navigate to Run Folder, prepare SampleSheet.csv
-bcl-convert --bcl-input-directory $PWD --output-directory /path/to/out/dir
+bcl-convert --no-lane-splitting true --bcl-input-directory $PWD --output-directory /path/to/out/dir
 ```
 
 ### Saturation analysis 
