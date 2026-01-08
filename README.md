@@ -1,30 +1,13 @@
-# Collections
+# Content
 
-* R Programming
-  - [List of useful ressources](./r-programming.md)
-  - [Package Development](./posts/packages.md)
-* Bioinformatics
-  - [Ressources / Bookmarks](./bioinformatics.md)
-  - [Downloading data from Repositories (ENA/SRA)](./download-data.md)
-  - [Sequencing Data Workflows](./analysis.md)
-  - [10X Genomics scRNA-Seq Data](./analyse-10x-data.md)
-* Single-cell 
-  - [Data Analysis Workflows](./analysis.md)
-  - list of software: [awesome-single-cell](https://github.com/seandavi/awesome-single-cell)
-* Visualization
-  - [Hive plots](http://www.hiveplot.com)
-
-
-## Content
-
-* [BASH oneliners](#BASH-oneliners)
+* [BASH](#BASH)
 * [Sequencing Data](#Sequencing-Data)
   - [Saturation analysis](#Saturation-analysis)
   - [Working with SAM/BAM files](#Working-with-SAM/BAM-files)
 * [Folder Structure for Data Science and Bioinformatics](#Folder-Structure-for-Data-Science-and-Bioinformatics)
 
 
-## BASH oneliners
+# BASH oneliners
 
 ```bash
 # find and copy files
@@ -40,7 +23,16 @@ for file in prefix*; do mv "$file" "${file#prefix}"; done
 for f in *.pdf; do sips -s dpiWidth 600 -s dpiHeight 600 -s format tiff $f --out $(basename -s pdf $f)tif; done
 ```
 
-## Sequencing Data
+# Sequencing Data
+
+## Demultiplexing
+
+More Information on bcl-convert on [Illumina website](https://knowledge.illumina.com/software/on-premises-software/software-on-premises-software-reference_material-list/000007337)
+
+```bash
+# Navigate to Run Folder, prepare SampleSheet.csv
+bcl-convert --bcl-input-directory $PWD --output-directory /path/to/out/dir
+```
 
 ### Saturation analysis 
 
