@@ -1,11 +1,16 @@
 # Content
 
+## README
+
 * [BASH](#BASH)
 * [Sequencing Data](#Sequencing-Data)
   - [Saturation analysis](#Saturation-analysis)
   - [Working with SAM/BAM files](#Working-with-SAM/BAM-files)
 * [Folder Structure for Data Science and Bioinformatics](#Folder-Structure-for-Data-Science-and-Bioinformatics)
 
+## Links
+* [Nano shortcuts](./nano.md)
+* [ownloading data from SRA](./sra.md)
 
 # BASH oneliners
 
