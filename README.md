@@ -2,8 +2,9 @@
 
 ## README
 
-* [BASH](#BASH)
-* [Sequencing Data](#Sequencing-Data)
+* [Bash](#bash)
+* [git(hub)](#git)
+* [Sequencing Data](#sequencing-data)
   - [Saturation analysis](#Saturation-analysis)
   - [Working with SAM/BAM files](#Working-with-SAM/BAM-files)
 * [Folder Structure for Data Science and Bioinformatics](#Folder-Structure-for-Data-Science-and-Bioinformatics)
@@ -26,6 +27,37 @@ for file in prefix*; do mv "$file" "${file#prefix}"; done
 
 # convert multiple PDFs to TIFFs (useful for publications)
 for f in *.pdf; do sips -s dpiWidth 600 -s dpiHeight 600 -s format tiff $f --out $(basename -s pdf $f)tif; done
+```
+
+# Git
+
+```bash
+# 1. Go to your project directory
+cd /path/to/your/project
+
+# 2. Initialize git
+git init
+
+# 3. Create initial files
+echo "# My Project" > README.md
+git add README.md
+
+# 4. First commit
+git commit -m "Initial commit"
+
+# 5. Set main branch explicitly (recommended)
+git branch -M main
+
+# 6. Add GitHub remote
+git remote add origin git@github.com:YOUR_USERNAME/YOUR_REPO.git
+# or HTTPS:
+# git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
+
+# 7. Push to GitHub
+git push -u origin main
+
+# 8. Alternatively, create GitHub repo and push (private by default; use --public if desired)
+gh repo create my-repo-name --source=. --remote=origin --push
 ```
 
 # Sequencing Data
