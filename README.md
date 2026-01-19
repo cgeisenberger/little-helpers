@@ -2,6 +2,7 @@
 
 ## README
 
+* [Conda](#basic-conda-commands)
 * [Bash](#bash)
 * [git(hub)](#git)
 * [Sequencing Data](#sequencing-data)
@@ -12,6 +13,22 @@
 ## Links
 * [Nano shortcuts](./nano.md)
 * [Downloading data from SRA](./sra.md)
+
+
+# Basic Conda Commands
+
+```bash
+conda create -n myenv python=3.11 numpy pandas     # create a new isolated environment
+conda activate myenv                              # activate an environment
+conda deactivate                                  # deactivate the current environment
+conda install scipy matplotlib                    # install packages into the active environment
+conda update numpy                                # update a specific package
+conda list                                        # list installed packages in the environment
+conda env list                                    # list all conda environments
+conda remove seaborn                              # remove a package from the environment
+conda env export > environment.yml                # export environment for reproducibility
+conda env create -f environment.yml               # recreate environment from YAML
+```
 
 # BASH oneliners
 
