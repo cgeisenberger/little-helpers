@@ -17,7 +17,7 @@
 ## Free online ressources
 * [Huber & Holmes: Modern Statistics for Modern Biology](https://web.stanford.edu/class/bios221/book/index.html)
 * [Silge & Kuhn: Tidy Modelling with R](https://www.tmwr.org)
-* [Research Software Engineering](Research Software Engineering)
+* [Research Software Engineering]([Research Software Engineering](https://rse-book.github.io))
 * [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/)
 * [Single-cell Best Practices](https://www.sc-best-practices.org/preamble.html)
 * [scverse](https://scverse.org/learn/)
