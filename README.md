@@ -10,10 +10,17 @@
   - [Working with SAM/BAM files](#Working-with-SAM/BAM-files)
 * [Folder Structure for Data Science and Bioinformatics](#Folder-Structure-for-Data-Science-and-Bioinformatics)
 
-## Links
+## Links to Notes within this repository
 * [Nano shortcuts](./nano.md)
 * [Downloading data from SRA](./sra.md)
 
+## Free online ressources
+* [Huber & Holmes: Modern Statistics for Modern Biology](https://web.stanford.edu/class/bios221/book/index.html)
+* [Silge & Kuhn: Tidy Modelling with R](https://www.tmwr.org)
+* [Research Software Engineering](Research Software Engineering)
+* [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/)
+* [Single-cell Best Practices](https://www.sc-best-practices.org/preamble.html)
+* [scverse](https://scverse.org/learn/)
 
 # Basic Conda Commands
 
