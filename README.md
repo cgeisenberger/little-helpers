@@ -10,6 +10,7 @@
   - [Working with SAM/BAM files](#Working-with-SAM/BAM-files)
 * [Folder Structure for Data Science and Bioinformatics](#Folder-Structure-for-Data-Science-and-Bioinformatics)
 * [Limiting Claude Code token use](#claude-code)
+* [Towards reproducible project libraries in R with renv](#Renv)
 
 ## Links to Notes within this repository
 * [Nano shortcuts](./nano.md)
@@ -313,3 +314,35 @@ If you only adopt three changes:
 3. Filter logs and test output aggressively
 
 These three practices alone often reduce token consumption by 50% or more.
+
+
+## renv
+
+renv gives each R project its own isolated **project library**, so different
+projects can use different package versions without interfering, and records
+exact versions in a lockfile (`renv.lock`) so the environment can be rebuilt
+identically on another machine. The motivation is **isolation** (per-project
+libraries), **reproducibility**, and **portability** — sharing `renv.lock`
+lets collaborators recreate your exact package set. Note its scope is R
+packages only: it *tracks* but doesn't manage the R version, Pandoc, or the OS
+(pair with rig/Docker for those).
+
+### Core workflow
+```r
+renv::init()      # create project library + renv.lock + .Rprofile
+renv::install("dplyr")   # or install.packages(); also GitHub/Bioconductor
+renv::snapshot()  # record current package versions into renv.lock
+renv::restore()   # reinstall exact versions from renv.lock (reproduce env)
+renv::status()    # check for drift between library and lockfile
+```
+
+### Maintenance
+```r
+renv::update()    # pull latest versions (run periodically), then snapshot
+renv::history()   # view past lockfile states
+renv::revert()    # roll lockfile back to an earlier state
+```
+
+### Commit to version control
+`renv.lock`, `.Rprofile`, `renv/settings.json`, `renv/activate.R`
+(renv auto-generates a `.gitignore` that excludes `renv/library/`).
